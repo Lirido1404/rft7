@@ -11,6 +11,7 @@ import ServNav from "./(components)/ServNav";
 import {
   Sheet,
 } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,14 +32,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} relative z-99`}>
+      <body className={`${inter.className}`}>
         <AuthProvider>
           <Sheet>
             <AjoutNotifAuth />
             <FlecheRemonte />
             <div>
               <ServNav />
-            </div>
+            </div><Separator/>
             {children}
             <Footer />
             <Toaster />

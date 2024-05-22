@@ -33,6 +33,7 @@ export default async function Home() {
 
   return (
     <main className="">
+      
       <div className="w-[70%] flex justify-evenly mx-auto mt-6">
           <Link href={"#bmw"}>
             <Image
