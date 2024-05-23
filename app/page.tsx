@@ -104,7 +104,7 @@ export default function Home({ searchParams }: any) {
           width={600}
           height={200}
           alt="evo2"
-          className="drop-shadow-xl absolute bottom-0 -right-10 animvoit1"
+          className="drop-shadow-xl absolute bottom-0 right-0 animvoit1"
         />
         
       </div>
