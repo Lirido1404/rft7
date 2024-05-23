@@ -67,7 +67,7 @@ export default function Home({ searchParams }: any) {
             />
           </Link>
         </div>*/}
-      <div className="relative w-full h-[800px] ">
+      <div className="relative w-full ">
         <div className="ml-32 mt-20">
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">Mercedes 190 evo 2</p>
@@ -91,18 +91,25 @@ export default function Home({ searchParams }: any) {
             </Link>
           </div>
         </div>
-        <div className="">
+        
+         
           <Image
-            src="/Images/mcevo22.png"
-            width={1200}
-            height={600}
+            src="/Images/bmwmw1.png"
+            width={600}
+            height={200}
             alt="evo2"
-            className="drop-shadow-xl absolute bottom-60 right-0 animvoit1"
-          />
-        </div>
+            className="drop-shadow-xl absolute -top-24 right-10 animvoit1"
+          /> <Image
+          src="/Images/bmww.png"
+          width={600}
+          height={200}
+          alt="evo2"
+          className="drop-shadow-xl absolute bottom-0 -right-10 animvoit1"
+        />
+        
       </div>
 
-      <div className="w-[70%] mx-auto">
+      <div className="w-[70%] mx-auto mt-12">
         <Separator />
       </div>
 
