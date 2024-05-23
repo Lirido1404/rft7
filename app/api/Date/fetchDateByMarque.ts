@@ -4,7 +4,7 @@ import Date from "@/app/(models)/DatePost";
 
 export async function fetchDatesByMarque(tag:string) {
   try {
-    const res = await Date.find({ tag1: tag }).limit(3);
+    const res = await Date.find({ tag3: tag }).limit(3);
     console.log("resDate",res)
     return res
   } catch (err) {
