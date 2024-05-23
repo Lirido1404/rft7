@@ -97,11 +97,13 @@ const Nav = ({
                   } ${userImage ? "" : "bg-white p-1"}  `}
                 />
                 <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center">
-                  <p className="text-lg text-white">Me déconnecter</p>
+                  <p className="text-lg text-white">Profil</p>
                   <img
                     src="/Images/chevronn2.svg"
                     alt=""
-                    className="h-6 w-6 -rotate-90"
+                    className={`h-6 w-6 -rotate-90 ease-in-out duration-150 ${
+                      showMenu ? "-rotate-180 " : ""
+                    } `}
                   />
                 </div>
               </button>
@@ -123,11 +125,13 @@ const Nav = ({
                   } ${userImage ? "" : "bg-white p-1"}  `}
                 />
                 <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center">
-                  <p className="text-lg text-white">Me connecter</p>
+                  <p className="text-lg text-white">Profil</p>
                   <img
                     src="/Images/chevronn2.svg"
                     alt=""
-                    className="h-6 w-6 -rotate-90"
+                    className={`h-6 w-6 -rotate-90 ease-in-out duration-150 ${
+                      showMenu ? "-rotate-180 " : ""
+                    } `}
                   />
                 </div>
               </Link>

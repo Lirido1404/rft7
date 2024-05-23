@@ -27,14 +27,15 @@ import { options } from "./api/auth/[...nextauth]/options";
 import Page1card from "./(components)/(page1card)/Page1card";
 import Page1Card2 from "./(components)/(page1card)/Page1Card2";
 import Page1AudiPres from "./(components)/(page1card)/Page1AudiPres";
+import FetchMarque from "./(components)/Marques/fetchMarque";
+import { Suspense } from "react";
 
-export default async function Home() {
-    const session = await getServerSession(options);
+export default function Home({ searchParams }: any) {
+  const queryMarqueHome = searchParams?.marquehome || "";
 
   return (
     <main className="">
-      
-      <div className="w-[70%] flex justify-evenly mx-auto mt-6">
+      {/*<div className="w-[70%] flex justify-evenly mx-auto mt-6">
           <Link href={"#bmw"}>
             <Image
               src="/Images/bmwlogo.svg"
@@ -62,23 +63,27 @@ export default async function Home() {
               className="hover:rotate-[180deg] ease-in-out duration-200 cursor-pointer"
             />
           </Link>
-        </div>
+        </div>*/}
       <div className="relative w-full h-[800px] ">
-        
         <div className="ml-32 mt-20">
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">Mercedes 190 evo 2</p>
-            <h1 className="text-7xl font-bold opac">
-              Découvrez la beauté <br /> allemande
+            <h1 className="text-7xl font-bold opac text-[#2a292f]">
+              Découvrez l&apos;univers des <br /> rassos
             </h1>
-            <p className="w-[45ch] text-lg mt-4 text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              asperiores voluptatem quae similique architecto voluptas placeat
-              ipsum ullam sint mollitia. Univers allemand
+
+            <p className="w-[45ch] text-lg mt-4 text-justify text-[#2a292f]">
+              Vous aimez les voitures, les bruits de voitures et les courses, et
+              nous aussi ! C&apos;est pourquoi nous visons à transmettre cette
+              passion, en ayant des échanges autour de vieilles bonne soirées et
+              vielles bonnes courses.
             </p>
-            <Link href={'/EspaceDeVente'}>
-              <Button className="w-80 font-bold text-white" variant="destructive">
-                Découvrir
+            <Link href={"/Rassemblements"}>
+              <Button
+                className="w-80 font-bold text-white"
+                variant="destructive"
+              >
+                Découvrez ce monde rapidement
               </Button>
             </Link>
           </div>
@@ -98,7 +103,61 @@ export default async function Home() {
         <Separator />
       </div>
 
-      <div className="w-full flex mt-20 bg-[#1f1f1f]">
+      <div className="grid grid-cols-2 w-[85%] mx-auto  ">
+        <div className="h-full w-full flex items-center relative">
+          <div className="absolute w-10 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
+          <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
+        </div>
+        <div className="p-8">
+          <h2 className="text-2xl font-bold text-[#2a292f]">
+            Votre passion, nos services
+          </h2>
+          <ul className="flex flex-col gap-3 mt-10">
+            <li className="flex gap-6 items-center">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+                <img src="/Images/Calendrierr.svg" className="h-8 w-8" alt="" />
+              </div>
+              <p className="text-lg text-[#2a292f]">Toujours à l&apos;actu</p>
+            </li>
+            <li className="flex gap-6 items-center">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+                <img src="/Images/carrs.svg" className="h-8 w-8" alt="" />
+              </div>
+              <p className="text-lg text-[#2a292f]">Des voitures inédites</p>
+            </li>
+            <li className="flex gap-6 items-center">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+                <img src="/Images/commu2.svg" className="h-8 w-8" alt="" />
+              </div>
+              <p className="text-lg text-[#2a292f]">
+                Une communauté de passionnés
+              </p>
+            </li>
+            <li className="flex gap-6 items-center">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+                <img src="/Images/handd.svg" className="h-8 w-8" alt="" />
+              </div>
+              <p className="text-lg text-[#2a292f]">
+                Des échanges enrichissants
+              </p>
+            </li>
+            <li className="flex gap-6 items-center">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+                <img src="/Images/racee.svg" className="h-8 w-8" alt="" />
+              </div>
+              <p className="text-lg text-[#2a292f]">
+                Un gout pour la course et l&apos;amusement
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <Suspense fallback={<><p>Loading...</p></>}>
+        <FetchMarque queryMarqueHome={queryMarqueHome} />
+      </Suspense>
+
+      {/* <div className="w-full flex mt-20 bg-[#1f1f1f]">
         <div className="w-1/2 flex items-center justify-center ">
           <Image
             src="/Images/bmwlogocolor.svg"
@@ -117,7 +176,7 @@ export default async function Home() {
         </div>
 
         <div className="w-1/2  grid grid-cols-2 p-20 gap-8 ">
-          <Page1card/>
+          <Page1card />
         </div>
       </div>
 
@@ -127,7 +186,7 @@ export default async function Home() {
 
       <div className="w-full flex mt-20">
         <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
-          <Page1Card2/>
+          <Page1Card2 />
         </div>
 
         <div className="w-1/2 flex items-center justify-center ">
@@ -179,7 +238,9 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/663230657229e5ff78d7102c"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
+                <Button variant="destructive" className="text-white">
+                  View Car
+                </Button>
               </Link>
             </CardFooter>
           </Card>
@@ -193,7 +254,7 @@ export default async function Home() {
             height={500}
             className=" scale-y-100 z-1 hover:scale-y-50 pt-10 duration-200 ease-in-out  "
           />
-          <Page1AudiPres/>
+          <Page1AudiPres />
         </div>
 
         <div className="p-8">
@@ -222,7 +283,9 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/663231027229e5ff78d7102d"}>
-                <Button variant="destructive" className="text-white">View Car</Button>{" "}
+                <Button variant="destructive" className="text-white">
+                  View Car
+                </Button>{" "}
               </Link>
               <Badge variant="outline">New</Badge>
             </CardFooter>
@@ -232,7 +295,7 @@ export default async function Home() {
 
       <div className="w-[70%] mx-auto mt-8">
         <Separator />
-      </div>
+      </div> */}
 
       <div className="w-[80%] mx-auto mt-12">
         <Accordion type="single" collapsible>
