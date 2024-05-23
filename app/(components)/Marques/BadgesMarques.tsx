@@ -13,12 +13,17 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import {motion,AnimatePresence} from "framer-motion"
+
+
+
+
 function BadgesMarques({ resRassoMarque }: any) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [tag, setTag] = useState("BMW");
+  const [tag, setTag] = useState("");
 
   const handleSearch = (tag: string) => {
     const params = new URLSearchParams(searchParams);
@@ -163,44 +168,37 @@ function BadgesMarques({ resRassoMarque }: any) {
     }
   };
 
-  const formatTimestamp = (timestamp: any) => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    };
-    const date = new Date(timestamp);
-    const formatedDate = date.toLocaleDateString("fr-FR", options);
-
-    return formatedDate;
-  };
+ 
 
   return (
     <>
-      <div className="w-[80%] mx-auto">
+      <div className="w-[80%] mx-auto" id="marquee">
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
-          Les rassos de vos marques préférées {tag}
+          Les rassos de vos marques préférées
         </h3>
         <div className="flex flex-wrap justify-around mt-8">
           <button
-            className="shadow-lg border border-[#C91313] rounded px-12 py-1 flex flex-col gap-1 justify-center items-center"
+            className={`shadow-lg border ${
+              tag === "BMW" && "border-[#C91313] border-2 scale-110"
+            } rounded px-12 py-1 flex flex-col gap-1 justify-center items-center ease-in-out duration-150 hover:scale-105 `}
             onClick={tagBmw}
           >
             <img src="/Images/bmwlogo.svg" className="h-14 w-14" alt="" />
             <p className="text-center text-[#2a292f] text-md ">BMW</p>
           </button>
           <button
-            className="shadow-lg border rounded px-12 py-1 flex flex-col gap-1 justify-center items-center"
+            className={`shadow-lg ${
+              tag === "Mercedes" && "border-[#C91313] border-2 scale-110"
+            } border rounded px-12  py-1 flex flex-col gap-1 justify-center items-center ease-in-out duration-150 hover:scale-105`}
             onClick={tagMercedes}
           >
             <img src="/Images/mercedeslogo.svg" className="h-14 w-14" alt="" />
             <p className="text-center text-[#2a292f] text-md ">MERCEDES</p>
           </button>
           <button
-            className="shadow-lg border rounded px-12 py-1 flex flex-col gap-1 justify-center items-center"
+            className={`shadow-lg ${
+              tag === "Audi" && "border-[#C91313] border-2  scale-110"
+            } border rounded px-12 py-1 flex flex-col gap-1 justify-center items-center ease-in-out duration-150 hover:scale-105`}
             onClick={tagAudi}
           >
             <img src="/Images/audilogo.svg" className="h-14 w-14" alt="" />
@@ -209,59 +207,68 @@ function BadgesMarques({ resRassoMarque }: any) {
         </div>
       </div>
 
-      <Separator className="w-[30%] mx-auto mt-4" />
+      
 
-      <div className="mt-4 grid grid-cols-3 gap-6 px-12 ">
-        {resRassoMarque.map((event: any) => (
-          <Card
-            key={event._id}
-            className="border-[#C91313] border hover:shadow-md ease-in-out duration-150 overflow-hidden"
-          >
-            <Link className="" href={`/Rassemblements/${event._id}`}>
-              <CardHeader>
-                <CardTitle className="font-bold text-xl flex justify-between">
-                  <div>{event.title}</div>
-                  <Badge>
-                    {event.date} | {event.horaire}h{" "}
-                  </Badge>
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <p className="py-2 pl-2 border-l-2  border-red-500">
-                  {event.content}
-                </p>
-              </CardContent>
-
-              <CardFooter className="flex justify-between items-center p-4">
-                <Link
-                  href={`/Rassemblements/${event._id}`}
-                  className="px-4 py-1 rounded-md bg-[#1C74E9] hover:bg-[#4480c9] text-white"
+      {tag !== "" && (
+        <>
+        <Separator className="w-[30%] mx-auto mt-4" />
+          <div className="mt-4 grid grid-cols-3 gap-6 w-[80%] mx-auto ">
+            <AnimatePresence>
+              {resRassoMarque.map((event: any, index: number) => (
+                <motion.div
+                  key={event._id}
+                  initial={{ opacity: 0, x: -50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 50, scale: 1.1 }}
+                  transition={{ duration: 0.3, delay: 0.2 * index }}
                 >
-                  Voir Rasso
-                </Link>
+                  <Card className="border-[#C91313] border hover:shadow-md ease-in-out duration-150 overflow-hidden">
+                    <Link className="" href={`/Rassemblements/${event._id}`}>
+                      <CardHeader>
+                        <CardTitle className="font-bold text-xl flex justify-between">
+                          <div>{event.title}</div>
+                        </CardTitle>
+                      </CardHeader>
 
-                <p className="italic text-sm opacity-40">
-                  Crée le : {formatTimestamp(event.createdAt)}
-                </p>
-              </CardFooter>
-              <Separator />
+                      <CardContent>
+                        <p className="py-2 pl-2 border-l-2  border-red-500">
+                          {event.content}
+                        </p>
+                      </CardContent>
 
-              <div className="flex justify-center gap-3 p-2">
-                <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                  {returnTag1(event.tag1)}
-                </Badge>
-                <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                  {returnTag2(event.tag2)}
-                </Badge>
-                <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                  {returnTag3(event.tag3)}
-                </Badge>
-              </div>
-            </Link>
-          </Card>
-        ))}
-      </div>
+                      <CardFooter className="flex justify-between items-center p-4">
+                        <Link
+                          href={`/Rassemblements/${event._id}`}
+                          className="px-4 py-1 rounded-md bg-[#1C74E9] hover:bg-[#4480c9] text-white"
+                        >
+                          Voir Rasso
+                        </Link>
+
+                        <Badge>
+                          {event.date} | {event.horaire}h{" "}
+                        </Badge>
+                      </CardFooter>
+                      <Separator />
+
+                      <div className="flex justify-center gap-3 p-2">
+                        <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
+                          {returnTag1(event.tag1)}
+                        </Badge>
+                        <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
+                          {returnTag2(event.tag2)}
+                        </Badge>
+                        <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
+                          {returnTag3(event.tag3)}
+                        </Badge>
+                      </div>
+                    </Link>
+                  </Card>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </>
+      )}
     </>
   );
 }

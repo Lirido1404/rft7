@@ -29,12 +29,15 @@ import Page1Card2 from "./(components)/(page1card)/Page1Card2";
 import Page1AudiPres from "./(components)/(page1card)/Page1AudiPres";
 import FetchMarque from "./(components)/Marques/fetchMarque";
 import { Suspense } from "react";
+import HandleScroll from "./(components)/handleScroll";
 
 export default function Home({ searchParams }: any) {
   const queryMarqueHome = searchParams?.marquehome || "";
 
   return (
     <main className="">
+      <HandleScroll queryMarqueHome={queryMarqueHome} />
+
       {/*<div className="w-[70%] flex justify-evenly mx-auto mt-6">
           <Link href={"#bmw"}>
             <Image
@@ -99,13 +102,13 @@ export default function Home({ searchParams }: any) {
         </div>
       </div>
 
-      <div className="w-[70%] mx-auto" id="bmw">
+      <div className="w-[70%] mx-auto">
         <Separator />
       </div>
 
-      <div className="grid grid-cols-2 w-[85%] mx-auto  ">
+      <div className="grid grid-cols-2 w-[85%] mx-auto  bg-[#f4f4f7] mt-12 rounded-lg ">
         <div className="h-full w-full flex items-center relative">
-          <div className="absolute w-10 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
+          <div className="absolute w-8 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
           <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
         </div>
         <div className="p-8">
@@ -114,19 +117,19 @@ export default function Home({ searchParams }: any) {
           </h2>
           <ul className="flex flex-col gap-3 mt-10">
             <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
                 <img src="/Images/Calendrierr.svg" className="h-8 w-8" alt="" />
               </div>
               <p className="text-lg text-[#2a292f]">Toujours à l&apos;actu</p>
             </li>
             <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
                 <img src="/Images/carrs.svg" className="h-8 w-8" alt="" />
               </div>
               <p className="text-lg text-[#2a292f]">Des voitures inédites</p>
             </li>
             <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
                 <img src="/Images/commu2.svg" className="h-8 w-8" alt="" />
               </div>
               <p className="text-lg text-[#2a292f]">
@@ -134,7 +137,7 @@ export default function Home({ searchParams }: any) {
               </p>
             </li>
             <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
                 <img src="/Images/handd.svg" className="h-8 w-8" alt="" />
               </div>
               <p className="text-lg text-[#2a292f]">
@@ -142,7 +145,7 @@ export default function Home({ searchParams }: any) {
               </p>
             </li>
             <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2">
+              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
                 <img src="/Images/racee.svg" className="h-8 w-8" alt="" />
               </div>
               <p className="text-lg text-[#2a292f]">
@@ -153,9 +156,33 @@ export default function Home({ searchParams }: any) {
         </div>
       </div>
 
-      <Suspense fallback={<><p>Loading...</p></>}>
+      <div className="w-[70%] mx-auto mt-12">
+        <Separator />
+      </div>
+
+      <Suspense
+        fallback={
+          <>
+            <p>Loading...</p>
+          </>
+        }
+      >
         <FetchMarque queryMarqueHome={queryMarqueHome} />
       </Suspense>
+
+      <div className="flex justify-center mt-8">
+        <Link href={"/Rassemblements"}>
+          <Button className="w-80 font-bold text-white" variant="destructive">
+            Créer mon Rasso
+          </Button>
+        </Link>
+      </div>
+
+      <div className="w-[80%] mx-auto">
+        <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
+          Et encore plus ...{" "}
+        </h3>
+      </div>
 
       {/* <div className="w-full flex mt-20 bg-[#1f1f1f]">
         <div className="w-1/2 flex items-center justify-center ">

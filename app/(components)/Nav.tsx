@@ -41,7 +41,7 @@ const Nav = ({
   };
 
   return (
-    <header className="w-full h-20">
+    <header className="w-full h-20 bg-[#f4f4f7]">
       <nav className="flex justify-between w-[70%] mx-auto h-full items-center">
         <div className="flex items-center relative">
           <Link href={"/"}>
@@ -84,7 +84,7 @@ const Nav = ({
           {session ? (
             <>
               <button
-                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-2"
+                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1"
                 onClick={toggleMenu}
               >
                 <img
@@ -112,7 +112,7 @@ const Nav = ({
             <>
               <Link
                 href={"/Account"}
-                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-2"
+                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1"
                 onClick={toggleMenu}
               >
                 <img
