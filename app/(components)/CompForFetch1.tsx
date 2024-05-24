@@ -141,7 +141,7 @@ function CompForFetch1({
         <div
           className={`grid ${
             query == "" ? "grid-cols-2" : "grid-cols-3"
-          } w-[100%] mx-auto mt-6 gap-8 `}
+          } w-[100%] mx-auto mt-6 gap-10 `}
         >
           {res?.items.map((car: any, index: number) => (
             <motion.div
@@ -152,7 +152,7 @@ function CompForFetch1({
               transition={{ delay: index * 0.07 }}
             >
               <Link href={`/EspaceDeVente/${car._id}`}>
-                <Card className="hover:shadow-lg ease-in-out duration-150 relative border-2 border-[#C91313]">
+                <Card className="hover:shadow-lg ease-in-out duration-150 relative border-2 border-[#C91313] w-full h-60 ">
                   <div className="absolute flex flex-col gap-1 -left-6 top-4">
                     <Badge className="inline-flex items-center bg-[#f4f4f7] border-2 border-white rounded-full px-2 text-black hover:bg-white shadow">
                       <span className="flex gap-1 items-center">
@@ -200,7 +200,7 @@ function CompForFetch1({
                   <img
                     src={car.image}
                     alt=""
-                    className="h-full w-full rounded-lg hover:testimgborderblack"
+                    className="h-full w-full rounded-lg hover:testimgborderblack object-cover"
                   />
                 </Card>
               </Link>

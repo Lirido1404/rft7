@@ -76,7 +76,6 @@ const Nav = ({
           </SheetContent>
         </div>
         <div className="flex items-center gap-3">
-          <NavLink href="/Admin">Admin</NavLink>
           <NavLink href="/Rassemblements">Rassemblements</NavLink>
           <NavLink href="/EspaceDeVente">Espace de vente</NavLink>
         </div>

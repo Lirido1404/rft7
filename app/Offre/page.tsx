@@ -14,12 +14,16 @@ async function page() {
 
   return (
     <div>
-      <CarsForm
+      {session ? <>
+        <CarsForm
         sessionName={sessionName}
         sessionProfilPictureProprio={sessionProfilPictureProprio}
         mailDuProprio={mailProprio}
         id={sessionId}
       />
+      </> : <>
+        <p>Vous devez être connecté pour déposer votre offre</p>
+      </>}
       
     </div>
   );
