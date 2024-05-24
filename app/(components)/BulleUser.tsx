@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 function BulleUser({ allUsers }: any) {
   const getRandomPosition = (max: number) => {
@@ -11,6 +12,14 @@ function BulleUser({ allUsers }: any) {
   const getRandomDirection = () => {
     return Math.random() > 0.5 ? 1 : -1;
   };
+
+
+const pre1 = allUsers[0]?.nomProprio;
+const pre2 = allUsers[1]?.nomProprio;
+const pre3 = allUsers[2]?.nomProprio;
+
+console.log("userrr", allUsers[1]?.nomProprio);
+console.log("userrr", allUsers[2]?.nomProprio);
 
   return (
     <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8 h-96 grid grid-cols-2">
@@ -22,9 +31,24 @@ function BulleUser({ allUsers }: any) {
         <p className="mt-4">
           RFT propose de la vente de véhicule de passionés, en effet, si vous
           souhaitez transmettre votre trésor entre de bonnes mains, vous êtes au
-          bon endroit. Faites comme {allUsers[0].nomProprio},{" "}
-          {allUsers[1].nomProprio} ou encore {allUsers[2].nomProprio} !
+          bon endroit. Faites comme {pre1} {pre2 && `, ${pre2}`}{" "}
+          {pre3 && ` ou encore ${pre3}`}.
         </p>
+        <div>
+          <Link href={"/EspaceDeVente"}>
+            <Button className="w-80 font-bold text-white" variant="destructive">
+              Accéder au magasin
+            </Button>
+          </Link>
+
+          <Link href={"/Admin"}>
+            <Button className="w-80 font-bold text-white" variant="destructive">
+              Déposer mon offre
+            </Button>
+          </Link>
+
+          <Link href={"/Admin"}>Déposer mon offre</Link>
+        </div>
       </div>
       <div className="h-full w-full flex items-center relative">
         <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
