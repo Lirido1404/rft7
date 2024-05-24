@@ -31,6 +31,8 @@ import FetchMarque from "./(components)/Marques/fetchMarque";
 import { Suspense } from "react";
 import HandleScroll from "./(components)/handleScroll";
 import FetchUsers from "./(components)/FetchUsers";
+import { Input } from "@/components/ui/input";
+import ListPage1 from "./(components)/ListPage1";
 
 export default function Home({ searchParams }: any) {
   const queryMarqueHome = searchParams?.marquehome || "";
@@ -117,44 +119,7 @@ export default function Home({ searchParams }: any) {
           <h2 className="text-2xl font-bold text-[#2a292f]">
             Votre passion, nos services
           </h2>
-          <ul className="flex flex-col gap-3 mt-10">
-            <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-                <img src="/Images/Calendrierr.svg" className="h-8 w-8" alt="" />
-              </div>
-              <p className="text-lg text-[#2a292f]">Toujours à l&apos;actu</p>
-            </li>
-            <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-                <img src="/Images/carrs.svg" className="h-8 w-8" alt="" />
-              </div>
-              <p className="text-lg text-[#2a292f]">Des voitures inédites</p>
-            </li>
-            <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-                <img src="/Images/commu2.svg" className="h-8 w-8" alt="" />
-              </div>
-              <p className="text-lg text-[#2a292f]">
-                Une communauté de passionnés
-              </p>
-            </li>
-            <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-                <img src="/Images/handd.svg" className="h-8 w-8" alt="" />
-              </div>
-              <p className="text-lg text-[#2a292f]">
-                Des échanges enrichissants
-              </p>
-            </li>
-            <li className="flex gap-6 items-center">
-              <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-                <img src="/Images/racee.svg" className="h-8 w-8" alt="" />
-              </div>
-              <p className="text-lg text-[#2a292f]">
-                Un gout pour la course et l&apos;amusement
-              </p>
-            </li>
-          </ul>
+          <ListPage1/>
         </div>
       </div>
 
@@ -179,186 +144,99 @@ export default function Home({ searchParams }: any) {
           </Button>
         </Link>
       </div>
-
+      <div className="w-[70%] mx-auto mt-12">
+        <Separator />
+      </div>
       <div className="w-[80%] mx-auto">
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
-          Et encore plus ...{" "}
+          Découvrez... et vendez
         </h3>
       </div>
 
       <Suspense fallback={<>Loading...</>}>
         <FetchUsers />
       </Suspense>
-
-      {/* <div className="w-full flex mt-20 bg-[#1f1f1f]">
-        <div className="w-1/2 flex items-center justify-center ">
-          <Image
-            src="/Images/bmwlogocolor.svg"
-            width={700}
-            height={700}
-            className="absolute opacity-85"
-            alt="bmw logo"
-          />
-          <Image
-            src="/Images/bmwam2.png"
-            width={800}
-            height={800}
-            className="aret absolute animvoit2 mr-40"
-            alt="bmw"
-          />
-        </div>
-
-        <div className="w-1/2  grid grid-cols-2 p-20 gap-8 ">
-          <Page1card />
-        </div>
-      </div>
-
-      <div className="w-[70%] mx-auto mt-20" id="mercedes">
+      <div className="w-[70%] mx-auto mt-12">
         <Separator />
       </div>
-
-      <div className="w-full flex mt-20">
-        <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
-          <Page1Card2 />
-        </div>
-
-        <div className="w-1/2 flex items-center justify-center ">
-          <Image
-            src="/Images/mercedeslogo.svg"
-            width={550}
-            height={550}
-            className="absolute opacity-100"
-            alt="bmw logo"
-          />
-          <Image
-            src="/Images/mercedes/amggt.png"
-            width={950}
-            height={950}
-            className="aret absolute animvoit2"
-            alt="bmw"
-          />
-        </div>
+      <div className="w-[80%] mx-auto">
+        <h4 className="text-2xl font-bold text-[#2a292f] mt-12">
+          Ou restez en warning (pas encore fonctionnel)
+        </h4>
       </div>
 
-      <div className="w-[70%] mx-auto mt-20" id="audi">
+      <div className="grid grid-cols-2 w-[80%] mx-auto mt-12">
+        <div className="flex justify-center items-center">
+          <div className="border border-red-500 rounded-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.764662455018!2d2.2849276764646818!3d48.86269787133262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ffb666721a5%3A0x8dbf34b77b272395!2sPl.%20du%20Trocad%C3%A9ro%20et%20du%2011%20Novembre%2C%20Paris!5e0!3m2!1sfr!2sfr!4v1716574884966!5m2!1sfr!2sfr"
+              style={{ border: 0 }}
+              loading="lazy"
+              width={320}
+              height={320}
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-full w-80 h-80 "
+            ></iframe>
+          </div>
+        </div>
+        <div className="">
+          <h4 className="text-lg font-bold text-[#2a292f]">
+            Allumez vos clignotants et repérez les rassos les plus proches de
+            votre position !
+          </h4>
+          <p className="italic mt-6 text-sm">
+            Le visiteur pourra avoir accès au différents points de
+            rassemblements sur la map, et le focus se fera au niveau de sa
+            position. APIs qui seront utilisés : - Leaflet (pour la map) ; -
+            coordonnees-gps.fr (pour connaitre la longitude et latitude en
+            fonction de la ville)
+          </p>
+          <div>
+            <Input
+              className="w-96 mt-4"
+              placeholder="Entrez le nom de votre ville"
+            ></Input>
+            <p className="text-sm italic text-red-500 opacity-50">Pas encore fonctionnel</p>
+          </div>
+        </div>
+      </div>
+      <div className="w-[70%] mx-auto mt-12">
         <Separator />
       </div>
-
-      <div className="p-8 flex items-center justify-between mt-20 bg-[#1f1f1f]">
-        <div className="p-8">
-          <Card className="hover:shadow-lg hover:shadow-white ease-in-out duration-100">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/38637/car-audi-auto-automotive-38637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="audi"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Audi A3</CardTitle>
-                <CardDescription>2020</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/663230657229e5ff78d7102c"}>
-                <Button variant="destructive" className="text-white">
-                  View Car
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        </div>
-
-        <div className="flex justify-center items-start ">
-          <Image
-            src="/Images/audilogo2.svg"
-            alt="r8"
-            width={500}
-            height={500}
-            className=" scale-y-100 z-1 hover:scale-y-50 pt-10 duration-200 ease-in-out  "
-          />
-          <Page1AudiPres />
-        </div>
-
-        <div className="p-8">
-          <Card className="hover:shadow-lg hover:shadow-white ease-in-out duration-100">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/17593023/pexels-photo-17593023/free-photo-of-rue-arbres-voiture-vehicule.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Audi RS7</CardTitle>
-                <CardDescription>2022</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/663231027229e5ff78d7102d"}>
-                <Button variant="destructive" className="text-white">
-                  View Car
-                </Button>{" "}
-              </Link>
-              <Badge variant="outline">New</Badge>
-            </CardFooter>
-          </Card>
-        </div>
+      <div className="w-[80%] mx-auto">
+        <h5 className="text-2xl font-bold text-[#2a292f] mt-12">
+          Vos réponses
+        </h5>
       </div>
-
-      <div className="w-[70%] mx-auto mt-8">
-        <Separator />
-      </div> */}
 
       <div className="w-[80%] mx-auto mt-12">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-bold">
-              Des magasins de concessions sont-ils prévus ?
+              Quels services seront ajoutés à ce site à l&apos;avenir ?
             </AccordionTrigger>
             <AccordionContent>
-              Oui. Nous disposerons les modèles les plus récents dans des
-              espaces dédiés à la vente physique.
+              La proposition des Rassos en fonctions de votre localisation, le
+              service de localisation de voiture de Rasso qui vous permettra
+              d&apos;essayer la plus belle voiture de votre rasso préféré. (Si
+              consentement propriétaire)
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger className="font-bold">
-              Les gammes vont-elles s&apos;hétérogénéiser ?
+              Quels sont les objectifs de RFT ?
             </AccordionTrigger>
 
             <AccordionContent>
-              Oui. Il est possible que nous proposions des voitures de plus en
-              plus cotés, celà peut amener à des prix plus élevés.
+              Nous souhaitons aggrandir notre communauté afin de pouvoir agir à
+              l&apos;international, en proposant des rassos spéciaux par pays.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="font-bold">
-              Des partenariats avec d&apos;autres marques sont-ils prévus ?
+              RFT sera t-il présent au festival MMI ?
             </AccordionTrigger>
-            <AccordionContent>
-              Nous collabererons bien avec d&apos;autres marques que celles
-              présentées, mais uniquement des marques allemandes.
-            </AccordionContent>
+            <AccordionContent>Oui.</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

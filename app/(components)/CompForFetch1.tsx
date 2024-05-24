@@ -37,7 +37,6 @@ function CompForFetch1({
 }: any) {
   const [showDesc, setShowDesc] = useState(false);
 
-
   const returnTag = (tag: string) => {
     switch (tag) {
       case "bmw":
@@ -50,7 +49,6 @@ function CompForFetch1({
                 alt="bmwlogo"
                 className="h-6 w-6"
               />{" "}
-              
             </div>
           </>
         );
@@ -173,7 +171,6 @@ function CompForFetch1({
                           className="h-6 w-6 rounded-full"
                           alt=""
                         />
-
                         {car.nomProprio}
                       </Badge>
                     </Link>
@@ -203,7 +200,7 @@ function CompForFetch1({
                   <img
                     src={car.image}
                     alt=""
-                    className="h-full w-full rounded-lg"
+                    className="h-full w-full rounded-lg hover:testimgborderblack"
                   />
                 </Card>
               </Link>
