@@ -113,7 +113,7 @@ async function FetchDataComp2({ id }: any) {
       </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">
-          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] CardBG mx-auto text-white relative overflow-hidden h-full">
+          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] CardBG mx-auto text-white relative overflow-hidden h-96">
             <div className="relative h-full">
               <Image
                 src={response.image}
@@ -123,7 +123,7 @@ async function FetchDataComp2({ id }: any) {
                 className="w-full h-full absolute object-cover"
               />
 
-              <AnimInset response={response} />
+              
             </div>
           </Card>
         </div>
@@ -149,48 +149,9 @@ async function FetchDataComp2({ id }: any) {
               </td>
               <td className="font-bold"> {response.name} </td>
             </tr>
-            <tr>
-              <td>
-                <div className="flex justify-between gap-2">
-                  <p>Puissance</p>
-                  <Image
-                    src="/Images/pageinfo/engine.svg"
-                    alt="carsvg"
-                    width={25}
-                    height={25}
-                  />
-                </div>
-              </td>
-              <td className="font-bold">{response.power}</td>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex justify-between gap-2">
-                  <p>Consommation</p>
-                  <Image
-                    src="/Images/pageinfo/consumption.svg"
-                    alt="carsvg"
-                    width={25}
-                    height={25}
-                  />
-                </div>
-              </td>
-              <td className="font-bold">{response.consumption}</td>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex justify-between gap-2">
-                  <p>Emissions de CO²</p>
-                  <Image
-                    src="/Images/pageinfo/leaf.svg"
-                    alt="carsvg"
-                    width={25}
-                    height={25}
-                  />
-                </div>
-              </td>
-              <td className="font-bold">{response.emission}</td>
-            </tr>
+            
+            
+            
             <tr>
               <td>
                 <div className="flex justify-between gap-2">
@@ -205,20 +166,7 @@ async function FetchDataComp2({ id }: any) {
               </td>
               <td className="font-bold">{response.performance} Km</td>
             </tr>
-            <tr>
-              <td>
-                <div className="flex justify-between gap-2">
-                  <p>Date de sortie</p>
-                  <Image
-                    src="/Images/pageinfo/release2.svg"
-                    alt="carsvg"
-                    width={25}
-                    height={25}
-                  />
-                </div>
-              </td>
-              <td className="font-bold">{response.datesortie}</td>
-            </tr>
+            
             <tr>
               <td>
                 <div className="flex justify-between gap-2">

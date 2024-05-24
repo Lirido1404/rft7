@@ -200,7 +200,7 @@ function CompForFetch1({
                   <img
                     src={car.image}
                     alt=""
-                    className="h-full w-full rounded-lg hover:testimgborderblack object-cover"
+                    className="h-full w-full rounded-lg hover:brightness-50 ease-in-out duration-150 object-cover"
                   />
                 </Card>
               </Link>
