@@ -34,20 +34,19 @@ console.log("userrr", allUsers[2]?.nomProprio);
           bon endroit. Faites comme {pre1} {pre2 && `, ${pre2}`}{" "}
           {pre3 && ` ou encore ${pre3}`}.
         </p>
-        <div>
+        <div className="flex items-center gap-2 mt-6">
           <Link href={"/EspaceDeVente"}>
-            <Button className="w-80 font-bold text-white" variant="destructive">
+            <Button className="py-1 px-4 font-bold text-white" variant="destructive">
               Accéder au magasin
             </Button>
           </Link>
 
           <Link href={"/Admin"}>
-            <Button className="w-80 font-bold text-white" variant="destructive">
+            <Button className="py-1 px-4 font-bold text-white" variant="destructive">
               Déposer mon offre
             </Button>
           </Link>
 
-          <Link href={"/Admin"}>Déposer mon offre</Link>
         </div>
       </div>
       <div className="h-full w-full flex items-center relative">
