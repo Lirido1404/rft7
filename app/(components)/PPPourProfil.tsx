@@ -59,7 +59,7 @@ function PPPourProfil({
         className="h-16 w-16 rounded-full border border-gray-200 cursor-pointer"
         onClick={toggleMenu}
       />
-      {idOfUser}
+      
       <AnimatePresence>
         {menuVisible && sessionid !== idOfUser && (
           <motion.div

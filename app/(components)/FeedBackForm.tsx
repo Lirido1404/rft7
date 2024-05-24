@@ -10,7 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-
 import { DrawerClose, DrawerFooter } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,10 +17,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-
-
-
-function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
+function FeedBackForm({ idOfProduct }: { idOfProduct: string }) {
   const router = useRouter();
   const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const res = await fetch("/api/FeedBack", {
@@ -33,7 +29,6 @@ function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
     });
 
     router.refresh();
-    router.push(`/EspaceDeVente/${idOfProduct}`);
   };
 
   const [formData, setFormData] = useState({

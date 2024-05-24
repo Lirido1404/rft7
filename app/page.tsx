@@ -30,6 +30,7 @@ import Page1AudiPres from "./(components)/(page1card)/Page1AudiPres";
 import FetchMarque from "./(components)/Marques/fetchMarque";
 import { Suspense } from "react";
 import HandleScroll from "./(components)/handleScroll";
+import FetchUsers from "./(components)/FetchUsers";
 
 export default function Home({ searchParams }: any) {
   const queryMarqueHome = searchParams?.marquehome || "";
@@ -184,6 +185,10 @@ export default function Home({ searchParams }: any) {
           Et encore plus ...{" "}
         </h3>
       </div>
+
+      <Suspense fallback={<>Loading...</>}>
+        <FetchUsers />
+      </Suspense>
 
       {/* <div className="w-full flex mt-20 bg-[#1f1f1f]">
         <div className="w-1/2 flex items-center justify-center ">
