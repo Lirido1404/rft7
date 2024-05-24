@@ -48,7 +48,7 @@ function CompForFetch1({
                 src="/Images/bmwlogo.svg"
                 alt="bmwlogo"
                 className="h-6 w-6"
-              />{" "}
+              />
             </div>
           </>
         );
@@ -167,7 +167,7 @@ function CompForFetch1({
                     >
                       <Badge className="flex gap-1 items-center bg-[#f4f4f7] border-2 border-[#C91313] rounded-full px-2 text-black hover:bg-[#C91313] hover:text-white shadow">
                         <img
-                          src={car.photoProfilProprio}
+                          src={car.photoProfilProprio  || "/Images/profilsvg1.svg"}
                           className="h-6 w-6 rounded-full"
                           alt=""
                         />

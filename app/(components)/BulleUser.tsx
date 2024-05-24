@@ -41,7 +41,7 @@ function BulleUser({ allUsers }: any) {
             </Button>
           </Link>
 
-          <Link href={"/Admin"}>
+          <Link href={"/Offre"}>
             <Button className="py-1 px-4 font-bold text-white" variant="destructive">
               Déposer mon offre
             </Button>
