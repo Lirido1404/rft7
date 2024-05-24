@@ -3,9 +3,6 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI as string);
 mongoose.Promise = global.Promise;
 
-mongoose.connection.on("connected", () => {
-  console.log("Connexion réussie à la base de données");
-});
 
 const carsSchema = new Schema(
   {
@@ -15,9 +12,14 @@ const carsSchema = new Schema(
     power: String,
     consumption: String,
     emission: String,
-    performance: String,
-    price: String,
-    datesortie: String,
+    performance: Number,
+    price: Number,
+    tag:String,
+
+    nomProprio: String,
+    photoProfilProprio: String,
+    mailProprio: String,
+    userId:String,
   },
   {
     timestamps: true,

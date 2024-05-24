@@ -174,7 +174,7 @@ function BadgesMarques({ resRassoMarque }: any) {
     <>
       <div className="w-[80%] mx-auto" id="marquee">
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
-          Les rassos de vos marques préférées
+          Choisissez les rassos de vos marques préférées :
         </h3>
         <div className="flex flex-wrap justify-around mt-8">
           <button

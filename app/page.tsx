@@ -70,7 +70,7 @@ export default function Home({ searchParams }: any) {
       <div className="relative w-full ">
         <div className="ml-32 mt-20">
           <div className="flex flex-col gap-2">
-            <p className=" opacity-65">Mercedes 190 evo 2</p>
+            <p className=" opacity-65">BMW M4 F80</p>
             <h1 className="text-7xl font-bold opac text-[#2a292f]">
               Découvrez l&apos;univers des <br /> rassos
             </h1>
@@ -91,22 +91,16 @@ export default function Home({ searchParams }: any) {
             </Link>
           </div>
         </div>
-        
-         
-          <Image
-            src="/Images/bmwmw1.png"
-            width={600}
-            height={200}
-            alt="evo2"
-            className="drop-shadow-xl absolute -top-24 right-10 animvoit1"
-          /> <Image
-          src="/Images/bmww.png"
-          width={600}
-          height={200}
+        <img
+          src="/Images/bmwmw1.png"
           alt="evo2"
-          className="drop-shadow-xl absolute bottom-0 right-0 animvoit1"
+          className="drop-shadow-xl absolute top-8 2xl:-top-24 right-10 animvoit1 w-[400px] 2xl:w-[600px]"
+        />{" "}
+        <img
+          src="/Images/bmww.png"
+          alt="evo2"
+          className="drop-shadow-xl absolute bottom-0 right-0 animvoit2 w-[400px] 2xl:w-[600px]"
         />
-        
       </div>
 
       <div className="w-[70%] mx-auto mt-12">

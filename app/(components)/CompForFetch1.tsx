@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Card,
@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import SearchBar from "./SearchBar";
 import FiltreVoiture from "./FiltreVoiture";
 import { useDateStore } from "@/app/(store)/store";
+import { Badge } from "@/components/ui/badge";
 
 const truncateDescription = (description: string, maxLength: number) => {
   if (description.length > maxLength) {
@@ -34,6 +35,56 @@ function CompForFetch1({
   pageNumbers,
   offsetNumber,
 }: any) {
+  const [showDesc, setShowDesc] = useState(false);
+
+
+  const returnTag = (tag: string) => {
+    switch (tag) {
+      case "bmw":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/bmwlogo.svg"
+                alt="bmwlogo"
+                className="h-6 w-6"
+              />{" "}
+              
+            </div>
+          </>
+        );
+        break;
+      case "mercedes":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/mercedeslogo.svg"
+                alt="merceslogo"
+                className="h-6 w-6"
+              />{" "}
+            </div>
+          </>
+        );
+        break;
+      case "audi":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/audilogo.svg"
+                alt="audilogo"
+                className="h-6 w-6"
+              />{" "}
+            </div>
+          </>
+        );
+        break;
+    }
+  };
 
   return (
     <div className="flex">
@@ -102,40 +153,60 @@ function CompForFetch1({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.07 }}
             >
-              <Card className="hover:shadow-lg ease-in-out duration-150">
-                <CardHeader className="">
-                  <div className="rounded-full">
-                    <Image
-                      src={car.image}
-                      width={200}
-                      height={200}
-                      alt="bmw"
-                      className=" w-16 h-16 object-cover rounded-full"
-                    />
-                  </div>
+              <Link href={`/EspaceDeVente/${car._id}`}>
+                <Card className="hover:shadow-lg ease-in-out duration-150 relative border-2 border-[#C91313]">
+                  <div className="absolute flex flex-col gap-1 -left-6 top-4">
+                    <Badge className="inline-flex items-center bg-[#f4f4f7] border-2 border-white rounded-full px-2 text-black hover:bg-white shadow">
+                      <span className="flex gap-1 items-center">
+                        {returnTag(car.tag)}
+                        <p className="font-bold"> {car.name} </p>
+                      </span>
+                    </Badge>
 
-                  <div>
-                    <CardTitle>{car.name}</CardTitle>
-                    <CardDescription> {car.datesortie} </CardDescription>
+                    <Link
+                      href={`/MonCompte/Messages/${car.userId}`}
+                      className="mt-2"
+                    >
+                      <Badge className="flex gap-1 items-center bg-[#f4f4f7] border-2 border-[#C91313] rounded-full px-2 text-black hover:bg-[#C91313] hover:text-white shadow">
+                        <img
+                          src={car.photoProfilProprio}
+                          className="h-6 w-6 rounded-full"
+                          alt=""
+                        />
+
+                        {car.nomProprio}
+                      </Badge>
+                    </Link>
+
+                    <Badge className="inline-flex items-center bg-[#f4f4f7] border-2 border-[#C91313] rounded-full px-2 text-black hover:bg-white shadow">
+                      <span className="flex gap-1 items-center">
+                        <img
+                          src="/Images/coinn.svg"
+                          alt=""
+                          className="h-6 w-6"
+                        />
+                        <p className="font-bold">{car.price} €</p>
+                      </span>
+                    </Badge>
+
+                    <Badge className="inline-flex items-center bg-[#f4f4f7] border-2 border-[#C91313] rounded-full px-2 text-black hover:bg-white shadow">
+                      <span className="flex gap-1 items-center">
+                        <img
+                          src="/Images/roadd.svg"
+                          alt=""
+                          className="h-6 w-6"
+                        />
+                        <p className="font-bold">{car.performance} Km</p>
+                      </span>
+                    </Badge>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p>{truncateDescription(car.description, 120)}</p>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Link href={`/EspaceDeVente/${car._id}`}>
-                    <Button variant="destructive" className="text-white">
-                      View Car
-                    </Button>
-                  </Link>
-                  <BadgeCardSpe
-                    emission={car.emission}
-                    power={car.power}
-                    perf={car.performance}
-                    colorText="text-black"
+                  <img
+                    src={car.image}
+                    alt=""
+                    className="h-full w-full rounded-lg"
                   />
-                </CardFooter>
-              </Card>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -145,3 +216,37 @@ function CompForFetch1({
 }
 
 export default CompForFetch1;
+
+{
+  /*  <Link href={`/EspaceDeVente/${car._id}`}>
+                <Card className="hover:shadow-lg ease-in-out duration-150">
+                  <CardHeader className="">
+                    <div className="rounded-full">
+                      <Image
+                        src={car.photoProfilProprio}
+                        width={200}
+                        height={200}
+                        alt="bmw"
+                        className=" w-12 h-12 object-cover rounded-full"
+                      />
+                    </div>
+
+                    <div>
+                      <CardTitle>{car.name}</CardTitle>
+                      <CardDescription> {car.datesortie} </CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{truncateDescription(car.description, 120)}</p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <BadgeCardSpe
+                      emission={car.emission}
+                      power={car.power}
+                      perf={car.performance}
+                      colorText="text-black"
+                    />
+                  </CardFooter>
+                </Card>
+              </Link> */
+}

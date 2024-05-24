@@ -2,6 +2,11 @@
     animation: dep 1s ease-out forwards, opacity 1s ease-out forwards;
     opacity: 0;
   }
+
+  .animvoit2{
+animation: dep 1s ease-out forwards 1s, opacity 1s ease-out forwards 1s;
+    opacity: 0;
+  }
   
   @keyframes dep {
     0% {

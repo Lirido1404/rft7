@@ -3,7 +3,17 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-function CarsForm() {
+function CarsForm({
+  sessionName,
+  sessionProfilPictureProprio,
+  mailDuProprio,
+  id,
+}: {
+  sessionName: string;
+  sessionProfilPictureProprio: string;
+  mailDuProprio: string;
+  id:string;
+}) {
   const router = useRouter();
   const [image, setImage] = useState("");
 
@@ -15,8 +25,13 @@ function CarsForm() {
     consumption: "",
     emission: "",
     performance: "",
-    price: "",
-    datesortie: "",
+    price: undefined,
+    tag:"",
+
+    nomProprio: sessionName,
+    photoProfilProprio: sessionProfilPictureProprio,
+    mailProprio: mailDuProprio,
+    userId: id,
   });
 
   const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,7 +43,7 @@ function CarsForm() {
       },
       body: JSON.stringify(formData),
     });
-    router.push("/");
+    router.push("/EspaceDeVente");
     router.refresh();
   };
 
@@ -137,6 +152,7 @@ function CarsForm() {
             value={formData.emission}
             className="bg-slate-200 rounded"
           >
+            <option value="null"></option>
             <option value="Faible">Faible</option>
             <option value="Moyenne">Moyenne</option>
             <option value="Forte">Forte</option>
@@ -144,9 +160,9 @@ function CarsForm() {
         </div>
 
         <div className="flex gap-4">
-          <label htmlFor="">Performance</label>
+          <label htmlFor="">Kilométrage</label>
           <input
-            type="text"
+            type="number"
             name="performance"
             id="performance"
             onChange={handleChange}
@@ -158,7 +174,7 @@ function CarsForm() {
         <div className="flex gap-4">
           <label htmlFor="">Prix</label>
           <input
-            type="text"
+            type="number"
             name="price"
             id="price"
             onChange={handleChange}
@@ -168,15 +184,19 @@ function CarsForm() {
         </div>
 
         <div className="flex gap-4">
-          <label htmlFor="">Date de sortie</label>
-          <input
-            type="text"
-            name="datesortie"
-            id="datesortie"
+          <label htmlFor="">Tag</label>
+          <select
+            name="tag"
+            id="tag"
             onChange={handleChange}
-            value={formData.datesortie}
-            className="bg-slate-200 rounded "
-          />
+            value={formData.tag}
+            className="bg-slate-200 rounded"
+          >
+            <option value="null"></option>
+            <option value="bmw">BMW</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
         </div>
 
         <div>

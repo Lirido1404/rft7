@@ -49,18 +49,8 @@ async function FetchDataComp2({ id }: any) {
   const response = await fetchOneCar(id.id);
   console.log(response);
 
-  const cars: any = await fetchDataCar2(); // Définir le type explicite pour `cars`
+  const randomCars: any = await fetchDataCar2(); // Définir le type explicite pour `cars`
 
-  const selectRandomCars = () => {
-    const randomCars = [];
-    const totalCars: number = cars.length; // Définir le type explicite pour `totalCars`
-    for (let i = 0; i < 6; i++) {
-      const randomIndex = Math.floor(Math.random() * totalCars);
-      randomCars.push(cars[randomIndex]);
-    }
-    return randomCars;
-  };
-  const randomCars = selectRandomCars();
 
   const feedbacks: any = await fetchAllFeedBack();
 
@@ -204,7 +194,7 @@ async function FetchDataComp2({ id }: any) {
             <tr>
               <td>
                 <div className="flex justify-between gap-2">
-                  <p>0 - 100 Km/h</p>
+                  <p>Kilométrage</p>
                   <Image
                     src="/Images/pageinfo/perf.svg"
                     alt="carsvg"
@@ -213,7 +203,7 @@ async function FetchDataComp2({ id }: any) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{response.performance}</td>
+              <td className="font-bold">{response.performance} Km</td>
             </tr>
             <tr>
               <td>
@@ -302,7 +292,7 @@ async function FetchDataComp2({ id }: any) {
         )}
       </div>
 
-      <h2 className="text-4xl font-bold mt-20 pcar">Achats similaires</h2>
+      <h2 className="text-4xl font-bold mt-20 pcar">Elles pourraient aussi vous intéresser : </h2>
 
       <div className="mt-14">
         <PartieScrollArea randomCars={randomCars} />
