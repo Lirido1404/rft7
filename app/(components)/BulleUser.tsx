@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -13,7 +13,22 @@ function BulleUser({ allUsers }: any) {
   };
 
   return (
-    <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8 h-96">
+    <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8 h-96 grid grid-cols-2">
+      <div className="p-8">
+        <h2 className="text-lg font-bold text-[#2a292f]">
+          Venez, discutez, mais aussi achetez et louer !
+        </h2>
+
+        <p className="mt-4">
+          RFT propose de la vente de véhicule de passionés, en effet, si vous
+          souhaitez transmettre votre trésor entre de bonnes mains, vous êtes au
+          bon endroit. Faites comme {allUsers[0].nomProprio},{" "}
+          {allUsers[1].nomProprio} ou encore {allUsers[2].nomProprio} !
+        </p>
+      </div>
+      <div className="h-full w-full flex items-center relative">
+        <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
+      </div>
       <div className="absolute w-8 rounded-lg right-0 top-0 h-full bg-[#C91313] "></div>
 
       {allUsers?.map((user: any, index: number) => (
@@ -23,7 +38,7 @@ function BulleUser({ allUsers }: any) {
             style={{
               position: "absolute",
               left: `${getRandomPosition(100)}%`,
-              top: `${getRandomPosition(384)}px`,
+              top: `${getRandomPosition(250)}px`,
               boxShadow:
                 "0 0 10px rgba(201, 19, 19, 0.5), 0 0 20px rgba(201, 19, 19, 0.5), 0 0 30px rgba(201, 19, 19, 0.5), 0 0 40px rgba(201, 19, 19, 0.5)",
             }}

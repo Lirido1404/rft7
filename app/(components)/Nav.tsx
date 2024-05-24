@@ -110,8 +110,7 @@ const Nav = ({
             </>
           ) : (
             <>
-              <Link
-                href={"/Account"}
+              <button
                 className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1"
                 onClick={toggleMenu}
               >
@@ -134,7 +133,7 @@ const Nav = ({
                     } `}
                   />
                 </div>
-              </Link>
+              </button>
             </>
           )}
           <AnimatePresence>
