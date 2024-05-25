@@ -32,7 +32,8 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
   );
 
   const datas = await dataDesRassos(ids);
-  const idOfUserRasso = datas[0].idOfUser;
+  const idOfUserRasso = datas[0]?.idOfUser;
+  const ppUser = datas[0]?.ppUser;
 
   const returnTag1 = (tag1: string) => {
     switch (tag1) {
@@ -169,7 +170,11 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
             </>
           ) : (
             <>
-              <ImgOfProfil text="pageRasso" idOfAccount={idOfAccount} />
+              <img
+                src={ppUser || "/Images/profilsvg1.svg"}
+                alt=""
+                className={`w-40 h-40 rounded-full border`}
+              />{" "}
             </>
           )}
         </div>
@@ -178,7 +183,9 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
           <div className="flex gap-2">
             <span className="flex gap-1 items-center font-bold">
               <img src="/Images/carssport.svg" alt="" className="w-7 h-7" />
-              {participationRassoOfIdUser}{""} {participationRassoOfIdUser > 1
+              {participationRassoOfIdUser}
+              {""}{" "}
+              {participationRassoOfIdUser > 1
                 ? "participations prévues"
                 : "participation prévue"}
             </span>

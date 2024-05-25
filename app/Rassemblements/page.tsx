@@ -13,6 +13,7 @@ import DrawerTriggercomp from "../(components)/DrawerTriggercomp";
 async function page() {
   const session = await getServerSession(options);
  const userId = session?.user?.id;
+ const ppUser = session?.user?.image;
   return (
     <>
       <Drawer>
@@ -54,7 +55,7 @@ async function page() {
 
         <DrawerContent>
           <div className="mt-10 flex justify-center items-center mb-10">
-            <DateForm userId={userId} />
+            <DateForm userId={userId} ppUser={ppUser} />
           </div>
         </DrawerContent>
       </Drawer>

@@ -90,7 +90,12 @@ async function PageAnnonces({ idOfAccount }: { idOfAccount: string }) {
             </>
           ) : (
             <>
-              <ImgOfProfil text="pageComms" idOfAccount={idOfAccount} />
+              {/* <ImgOfProfil text="pageComms" idOfAccount={idOfAccount} /> */}
+              <img
+        src={fetchAnnonces[0]?.photoProfilProprio || "/Images/profilsvg1.svg"}
+        alt=""
+        className={`w-40 h-40 rounded-full border`}
+      />
             </>
           )}
         </div>

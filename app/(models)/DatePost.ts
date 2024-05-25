@@ -16,6 +16,7 @@ const datePostSchema = new Schema(
     objectif:String,
     content: String,
     idOfUser:String,
+    picOfUser:String,
   },
   {
     timestamps: true,

@@ -11,7 +11,7 @@ import { DrawerClose } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
 
 
-function DateForm({userId}:{userId:string}) {
+function DateForm({userId,ppUser}:{userId:string;ppUser:string}) {
   
   const router = useRouter();
 
@@ -28,6 +28,8 @@ function DateForm({userId}:{userId:string}) {
     objectif: string;
     content: string;
     idOfUser:typeof userId;
+    picOfUser:typeof ppUser,
+
   }>({
     date: undefined,
     title: "",
@@ -40,6 +42,7 @@ function DateForm({userId}:{userId:string}) {
     objectif: "",
     content: "",
     idOfUser:userId,
+    picOfUser:ppUser,
   });
   const [errorMessage, setErrorMessage] = useState("");
 
