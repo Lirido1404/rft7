@@ -13,7 +13,7 @@ async function page() {
   const userImage = session?.user?.image;
   return (
     <div>
-      <h1 className="ml-8 mt-8 font-bold text-4xl">
+      <h1 className="ml-8 mt-8 text-4xl">
         Mon profil
       </h1>
       <div className="flex items-center gap-2 pl-24 pt-12">

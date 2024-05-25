@@ -103,7 +103,7 @@ async function PageAnnonces({ idOfAccount }: { idOfAccount: string }) {
           <NomProprioCom2  />
           <div className="flex gap-2">
             <span className="flex gap-1 items-center">
-              <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
+              <img src="/Images/cardannounce.svg" alt="" className="w-8 h-8" />
               <span className="font-bold">
                 {" "}
                 {fetchAnnoncesCount}{" "}
