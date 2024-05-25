@@ -5,7 +5,7 @@ export async function fetchCarsss() {
     const distinctCars = await Cars.distinct("userId");
     const uniqueCars = await Promise.all(
       distinctCars.map(async (userId) => {
-        const car = await Cars.findOne({ userId }).select("userId nomProprio");
+        const car = await Cars.findOne({ userId }).select("userId nomProprio photoProfilProprio");
         return car;
       })
     );

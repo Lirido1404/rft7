@@ -175,7 +175,7 @@ export default function Home({ searchParams }: any) {
               width={320}
               height={320}
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-full w-80 h-80 "
+              className="rounded-full w-96 h-96 "
             ></iframe>
           </div>
         </div>

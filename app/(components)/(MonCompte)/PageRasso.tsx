@@ -157,7 +157,6 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
 
   return (
     <div>
-      <p>Beta ( non-fini | version avec bugs )</p>
       <div className="flex items-center gap-2 p-24">
         <div>
           {session?.user?.id == idOfAccount ? (
@@ -165,7 +164,7 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
               <img
                 src={userImage || "/Images/profilsvg1.svg"}
                 alt=""
-                className={`w-32 h-32 rounded-full`}
+                className={`w-32 h-32 rounded-full bg-white border`}
               />
             </>
           ) : (
@@ -173,7 +172,7 @@ async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
               <img
                 src={ppUser || "/Images/profilsvg1.svg"}
                 alt=""
-                className={`w-40 h-40 rounded-full border`}
+                className={`w-40 h-40 rounded-full border bg-white border`}
               />{" "}
             </>
           )}

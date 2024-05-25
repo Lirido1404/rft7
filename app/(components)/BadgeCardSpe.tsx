@@ -24,19 +24,7 @@ interface Props {
 function BadgeCardSpe({ perf, power, emission, colorText }: Props) {
   return (
     <div className="flex gap-4">
-      <Badge variant="outline" className={`${colorText}`}>
-        {" "}
-        <div className="flex gap-2 items-center">
-          {" "}
-          <Image
-            src="/Images/pageinfo/engine2.svg"
-            alt="carsvg"
-            width={20}
-            height={20}
-          />{" "}
-          {power}
-        </div>
-      </Badge>
+      
       <Badge variant="outline" className={`${colorText}`}>
       <div className="flex gap-2 items-center">
           {" "}
@@ -46,21 +34,10 @@ function BadgeCardSpe({ perf, power, emission, colorText }: Props) {
             width={20}
             height={20}
           />{" "}
-          {perf}
+          {perf} Km
         </div>
       </Badge>
-      <Badge variant="outline" className={`${emission} ${colorText}`}>
-      <div className="flex gap-2 items-center">
-          {" "}
-          <Image
-            src="/Images/pageinfo/leaf2.svg"
-            alt="carsvg"
-            width={20}
-            height={20}
-          />{" "}
-          {emission}
-        </div>
-      </Badge>
+      
     </div>
   );
 }

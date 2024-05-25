@@ -113,7 +113,7 @@ async function FetchDataComp2({ id }: any) {
       </div>
       <div className="flex flex-col gap-2 justify-center w-full rounded-xl border p-4 mt-8">
         <div className="flex gap-2 items-center">
-            <img src={response.photoProfilProprio} className="h-12 w-12 rounded-full" alt="" /> {response.nomProprio}
+            <img src={response.photoProfilProprio || "/Images/profilsvg1.svg"} className="h-12 w-12 rounded-full bg-white border" alt="" /> {response.nomProprio}
         </div>
         <div className="border-l-2 border-red-500 pl-1">
           <p>

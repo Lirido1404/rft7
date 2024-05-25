@@ -53,7 +53,7 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
               <img
                 src={userImage || "/Images/profilsvg1.svg"}
                 alt=""
-                className={`w-32 h-32 rounded-full`}
+                className={`w-32 h-32 rounded-full bg-white border`}
               />
             </>
           ) : (
@@ -62,7 +62,7 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
               <img
                 src={ppUser || "/Images/profilsvg1.svg"}
                 alt=""
-                className={`w-40 h-40 rounded-full border`}
+                className={`w-40 h-40 rounded-full border bg-white border`}
               />
             </>
           )}

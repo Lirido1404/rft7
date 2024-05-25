@@ -31,18 +31,28 @@ function BulleUser({ allUsers }: any) {
           RFT propose de la vente de véhicule de passionés, en effet, si vous
           souhaitez transmettre votre trésor entre de bonnes mains, vous êtes au
           bon endroit. Faites comme {pre1} {pre2 && `, ${pre2}`}{" "}
-          {pre3 && ` ou encore ${pre3}`} {pre2 ? "qui ont déjà saisi leur chance." : "qui a déjà saisi sa chance." }
-          Vous pouvez même aller voir leur offre en cliquant sur <span className="font-bold">ces petites pastilles</span>
+          {pre3 && ` ou encore ${pre3}`}{" "}
+          {pre2
+            ? "qui ont déjà saisi leur chance."
+            : "qui a déjà saisi sa chance."}
+          Vous pouvez même aller voir leur offre en cliquant sur{" "}
+          <span className="font-bold">ces petites pastilles</span>
         </p>
         <div className="flex items-center gap-2 mt-6">
           <Link href={"/EspaceDeVente"}>
-            <Button className="py-1 px-4 font-bold text-white" variant="destructive">
+            <Button
+              className="py-1 px-4 font-bold text-white"
+              variant="destructive"
+            >
               Accéder au magasin
             </Button>
           </Link>
 
           <Link href={"/Offre"}>
-            <Button className="py-1 px-4 font-bold text-white" variant="destructive">
+            <Button
+              className="py-1 px-4 font-bold text-white"
+              variant="destructive"
+            >
               Déposer mon offre
             </Button>
           </Link>
@@ -57,11 +67,11 @@ function BulleUser({ allUsers }: any) {
         const finalX = getRandomDirection() * getRandomPosition(400); // Position d'arrivée aléatoire sur l'axe X
         const finalY = getRandomDirection() * getRandomPosition(100); // Position d'arrivée aléatoire sur l'axe Y
 
-        
         return (
-          <Link key={index} href={`/MonCompte/Messages/${user.userId}`}>
+          <Link key={index} href={`/MonCompte/Messages/${user.userId}`} className="hover:scale-110 ease-in-out duration-150 ">
             <motion.div
-              className="flex text-center justify-center items-center h-12 w-12 xl:h-20 xl:w-20 rounded-full bg-[#f4f4f7] border-[#d4d4d4] border-2"
+              
+              className="flex text-center justify-center items-center h-12 w-12 xl:h-20 xl:w-20 rounded-full bg-[#f4f4f7] border-[#d4d4d4] border-2 relative"
               style={{
                 position: "absolute",
                 left: `${initialX}%`,
@@ -69,13 +79,12 @@ function BulleUser({ allUsers }: any) {
                 boxShadow:
                   "0 0 5px rgba(201, 19, 19, 0.5), 0 0 10px rgba(201, 19, 19, 0.5), 0 0 15px rgba(201, 19, 19, 0.5), 0 0 20px rgba(201, 19, 19, 0.5)",
               }}
-              initial={{ scale: 0, opacity: 0, x: 0, y: 0}}
+              initial={{ scale: 0, opacity: 0, x: 0, y: 0 }}
               whileInView={{
                 x: finalX,
                 y: finalY,
                 opacity: 1,
                 scale: 1,
-                
               }}
               transition={{
                 duration: 1,
@@ -83,6 +92,11 @@ function BulleUser({ allUsers }: any) {
               }}
             >
               <p className="text-center text-sm">{user.nomProprio}</p>
+              <img
+                src={user?.photoProfilProprio || "Images/profilsvg1.svg"}
+                alt=""
+                className="h-8 w-8 rounded-full absolute -top-2 -right-2 border bg-white"
+              />
             </motion.div>
           </Link>
         );
