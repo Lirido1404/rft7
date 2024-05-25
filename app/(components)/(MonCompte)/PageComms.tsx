@@ -41,6 +41,7 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
   );
 
   const commentairesIdUser = await commentsOfIdUser(idOfAccount);
+  const ppUser = commentairesIdUser[0]?.profilePic;
 
   const userImage = session?.user?.image;
   return (
@@ -57,7 +58,12 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
             </>
           ) : (
             <>
-              <ImgOfProfil text="pageComms" idOfAccount={idOfAccount} />
+              {/*<ImgOfProfil text="pageComms" idOfAccount={idOfAccount} />*/}
+              <img
+                src={ppUser || "/Images/profilsvg1.svg"}
+                alt=""
+                className={`w-40 h-40 rounded-full border`}
+              />
             </>
           )}
         </div>
