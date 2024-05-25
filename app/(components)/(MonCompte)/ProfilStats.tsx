@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
 
-function ProfilStats({userId,commentOfIdUser,participationOfIdUser}:{userId:string,commentOfIdUser:number,participationOfIdUser:number}) {
+function ProfilStats({userId,commentOfIdUser,participationOfIdUser,fetchAnnoncesCount}:{userId:string,commentOfIdUser:number,participationOfIdUser:number,fetchAnnoncesCount:number}) {
   return (
     <div>
       <Separator className="w-[70%] mx-auto mt-1 bg-[#C91313] " />
@@ -18,6 +18,12 @@ function ProfilStats({userId,commentOfIdUser,participationOfIdUser}:{userId:stri
         <img src="/Images/carssport.svg" alt="" className="w-7 h-7" />
         <Link href={`/MonCompte/Rassemblements/${userId}`} className=" ">
           Mes rassos <span className="text-red-500 font-bold"> ({participationOfIdUser})</span>
+        </Link>
+      </span>
+      <span className=" gap-1 text-black hover:text-blue-500 ease-out duration-200 cursor-pointer text-center p-1 flex items-center whitespace-nowrap ">
+        <img src="/Images/cardannounce.svg" alt="" className="w-6 h-6" />
+        <Link href={`/MonCompte/Annonces/${userId}`} className=" ">
+          Mes annonces <span className="text-red-500 font-bold"> ({fetchAnnoncesCount})</span>
         </Link>
       </span>
     </div>

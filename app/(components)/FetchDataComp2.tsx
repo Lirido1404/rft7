@@ -111,6 +111,16 @@ async function FetchDataComp2({ id }: any) {
       <div className="mt-6">
         <Achat/>
       </div>
+      <div className="flex flex-col gap-2 justify-center w-full rounded-xl border p-4 mt-8">
+        <div className="flex gap-2 items-center">
+            <img src={response.photoProfilProprio} className="h-12 w-12 rounded-full" alt="" /> {response.nomProprio}
+        </div>
+        <div className="border-l-2 border-red-500 pl-1">
+          <p>
+              {response.description}
+          </p>
+        </div>
+      </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">
           <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] CardBG mx-auto text-white relative overflow-hidden h-96">

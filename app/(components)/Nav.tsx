@@ -26,10 +26,12 @@ const Nav = ({
   session,
   commentOfIdUser,
   participationOfIdUser,
+  fetchAnnoncesCount,
 }: {
   session: any;
   commentOfIdUser: number;
   participationOfIdUser: number;
+  fetchAnnoncesCount:number;
 }) => {
   const userImage = session?.user?.image;
   const [showMenu, setShowMenu] = useState(false);
@@ -169,6 +171,7 @@ const Nav = ({
                   {session && (
                     <ProfilStats
                       userId={userId}
+                      fetchAnnoncesCount={fetchAnnoncesCount}
                       commentOfIdUser={commentOfIdUser}
                       participationOfIdUser={participationOfIdUser}
                     />

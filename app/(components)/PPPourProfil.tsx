@@ -68,7 +68,7 @@ function PPPourProfil({
             exit="exit"
             variants={menuVariants}
             transition={{ duration: 0.3 }}
-            className="absolute flex flex-col -top-32 left-0 bg-white border border-red-500 rounded shadow-md p-2"
+            className="absolute flex flex-col -top-40 left-0 bg-white border border-red-500 rounded shadow-md p-2"
           >
             <h2>
               Profil de <span className="font-bold text-lg"> {nomOfUser}</span>
@@ -82,6 +82,13 @@ function PPPourProfil({
                 className=" py-2 px-16 whitespace-nowrap text-center mt-3 bg-blue-500 text-white rounded hover:bg-blue-600 "
               >
                 Voir messages ({commentFilterBasedOnUser.length})
+              </Link>
+
+              <Link
+                href={`/MonCompte/Annonces/${idOfUser}`}
+                className=" py-2 px-16 whitespace-nowrap text-center bg-blue-500 text-white rounded hover:bg-blue-600 "
+              >
+                Voir Annonces
               </Link>
               
             </div>
