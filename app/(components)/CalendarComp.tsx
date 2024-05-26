@@ -48,7 +48,8 @@ function CalandarComp() {
   const modifiersStyles = { booked: bookedStyle };
 
   return (
-    <div>
+    <>
+    <div className="hidden lg:flex mt-12 lg:mt-0">
       <Calendar
         mode="single"
         numberOfMonths={2}
@@ -59,6 +60,19 @@ function CalandarComp() {
         modifiersStyles={modifiersStyles}
       />
     </div>
+
+    <div className="lg:hidden mt-12 lg:mt-0">
+      <Calendar
+        mode="single"
+        numberOfMonths={1}
+        selected={date}
+        onSelect={setDate}
+        className="rounded-md border shadow bg-white text-black"
+        modifiers={modifiers}
+        modifiersStyles={modifiersStyles}
+      />
+    </div>
+    </>
   );
 }
 

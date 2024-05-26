@@ -85,13 +85,13 @@ function CompForFetch1({
   };
 
   return (
-    <div className="flex relative">
+    <div className="flex flex-col lg:flex-row relative">
 
-      <div className="w-[30%] flex items-center flex-col">
+      <div className="lg:w-[30%] w-full flex items-center flex-col">
         <FiltreVoiture />
       </div>
       <div className="p-4 w-full">
-        <div className=" mt-4 flex justify-between ">
+        <div className=" mt-4 flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between ">
           <div>
             <p className="text-sm italic flex gap-2 items-center">
               <img src="/Images/carssport.svg" className="w-8 h-8" alt="" />
@@ -101,13 +101,13 @@ function CompForFetch1({
             <SearchBar />
           </div>
 
-          <div className="flex items-end">
+          <div className="flex items-end text-[12px] lg:text-base">
             <div className="flex items-center justify-end gap-4">
               {page === 1 ? (
-                <div className="opacity-60 cursor-default">Previous</div>
+                <div className="opacity-60 cursor-default">Précédent</div>
               ) : (
                 <Link href={`?page=${prevPage}`} className="hover:underline">
-                  Previous
+                  Précédent
                 </Link>
               )}
               |
@@ -130,22 +130,22 @@ function CompForFetch1({
               </div>
               |
               {page === totalPages ? (
-                <div className="opacity-60 cursor-default">Next</div>
+                <div className="opacity-60 cursor-default">Suivant</div>
               ) : (
                 <Link href={`?page=${nextPage}`} className="hover:underline">
-                  Next
+                  Suivant
                 </Link>
               )}
             </div>
           </div>
         </div>{" "}
         <div
-          className={`grid relative ${
+          className={`flex flex-col gap-8 lg:grid relative ${
             query == "" ? "grid-cols-2" : "grid-cols-3"
           } w-[100%] mx-auto mt-6 gap-10 `}
         >
-                            <div className="blob absolute top-8 left-20 opacity-20 w-[700px] h-[700px] "></div>
-                            <div className="blob absolute top-40 right-20 opacity-20 w-[500px] h-[500px] "></div>
+                            <div className="blob absolute top-8 left-20 opacity-20 w-[200] h-[200] lg:w-[700px] lg:h-[700px] "></div>
+                            <div className="blob absolute top-40 right-20 opacity-20 w-[100] h-[100] lg:w-[500px] lg:h-[500px] "></div>
 
 
           {res?.items.map((car: any, index: number) => (

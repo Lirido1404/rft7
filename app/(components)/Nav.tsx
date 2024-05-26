@@ -82,13 +82,46 @@ const Nav = ({
   }
 
   
-
+const handleResetBuyingDetails = () => {
+    addBuyingDetail([]); // Appeler setBuyingDetails avec un tableau vide pour réinitialiser les détails d'achat
+};
 
   return (
+    <>
+    <header className="w-full lg:hidden">
+      <nav className="w-full flex flex-col">
+      <div className="flex justify-center border-b">
+      <Link href={"/"} className="flex gap-4 items-center justify-center" onClick={handleResetBuyingDetails}>
+            <Image
+              src="/Images/logocar2.png"
+              width={30}
+              height={30}
+              alt="logo"
+            />
+          
+          <p>Accueil</p>
+          </Link>
+      </div>
+      <div className="flex justify-center border-b">
+      <Link href={"/Rassemblements"} className="flex gap-4 items-center justify-center" onClick={handleResetBuyingDetails}>
+            
+          
+          <p>Rassemblements</p>
+          </Link>
+      </div>
+      <div className="flex justify-center border-b">
+      <Link href={"/EspaceDeVente"} className="flex gap-4 items-center justify-center" onClick={handleResetBuyingDetails}>
+            
+          
+          <p>Espace de Vente</p>
+          </Link>
+      </div>
+      </nav>
+    </header>
     <header className="w-full h-20 bg-[#f4f4f7] hidden lg:block">
       <nav className="flex justify-between w-[70%] mx-auto h-full items-center">
         <div className="flex items-center relative">
-          <Link href={"/"}>
+          <Link href={"/"} onClick={handleResetBuyingDetails}>
             <Image
               src="/Images/logocar2.png"
               width={90}
@@ -279,13 +312,14 @@ const Nav = ({
         
       </nav>
     </header>
+    </>
   );
 };
 
 export default Nav;
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
-  <Link href={href} passHref>
+  <Link href={href} passHref >
     <motion.a
       className="text-black py-1 px-4 ease-in-out duration-200 rounded text-xl font-bold relative overflow-hidden"
       whileHover="hover"
