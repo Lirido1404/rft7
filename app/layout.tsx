@@ -15,7 +15,7 @@ import { Separator } from "@/components/ui/separator";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RFT | E-Commerce et Réseau Social",
+  title: "RFT | Reseau de Rasso et commerce",
   description: "Site E-Commerce et réseau social",
   icons: {
     icon: ["/favicon.icov=4"],

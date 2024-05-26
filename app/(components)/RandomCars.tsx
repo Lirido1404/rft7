@@ -82,7 +82,7 @@ const RandomCars = () => {
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Link href={`/EspaceDeVente/${car._id}`}>
-                  <Button variant="destructive">View Car</Button>
+                  <Button variant="destructive">Voir</Button>
                 </Link>
                 <BadgeCardSpe
                   emission={car.emission}
