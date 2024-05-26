@@ -107,7 +107,7 @@ async function FetchOneEvent({ id }: any) {
           </>
         );
         break;
-      case 'Mercedes':
+      case "Mercedes":
         return (
           <>
             <div className="flex gap-2 items-center p-1">
@@ -122,7 +122,7 @@ async function FetchOneEvent({ id }: any) {
           </>
         );
         break;
-      case 'Audi':
+      case "Audi":
         return (
           <>
             <div className="flex gap-2 items-center p-1">
@@ -142,37 +142,49 @@ async function FetchOneEvent({ id }: any) {
 
   return (
     <div>
-      <div className="p-16 ">
-        <h3 className=" font-bold text-4xl text-black inline-block p-4 border-l-2 border-[#A40E0E] ">
-          {res.title}
-        </h3>
-        <StatsRasso
-          verificationPart={verificationPart}
-          resParticipations={resParticipations}
-          res0={res0}
-        />
+      <div className="p-16 flex justify-between ">
+        <div>
+          <h3 className=" font-bold text-4xl text-black inline-block p-4 border-l-2 border-[#A40E0E] ">
+            {res.title}
+          </h3>
+          <StatsRasso
+            verificationPart={verificationPart}
+            resParticipations={resParticipations}
+            res0={res0}
+          />
+        </div>
+        <div className="border-2 border-red-500 rounded-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.278184166167!2d2.3290264767566216!3d48.871973199750165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e30d4668339%3A0xa9abf21c286d0767!2sPalais%20Garnier!5e0!3m2!1sfr!2sfr!4v1716710969560!5m2!1sfr!2sfr"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-80 w-80 rounded-full "
+          ></iframe>
+        </div>{" "}
       </div>
-      <div className="flex gap-20 p-20">
+      <div className="flex gap-20 pl-20">
         <div className="w-[40%] ">
           <Card className=" sticky top-8 ">
             <CardHeader>
               <CardTitle> {res.title} </CardTitle>
               <CardDescription className="flex gap-4">
-                
                 <span className="flex items-center gap-2">
-                    <img
-                      src="/Images/calendaricon.svg"
-                      alt=""
-                      className="h-6 w-6"
-                    />
-                    <p>
-                      {res.date} | {res.horaire}h{" "}
-                    </p>
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <img src="/Images/mapicon.svg" alt="" className="h-6 w-6" />
-                    <p>{res.lieu}</p>
-                  </span> 
+                  <img
+                    src="/Images/calendaricon.svg"
+                    alt=""
+                    className="h-6 w-6"
+                  />
+                  <p>
+                    {res.date} | {res.horaire}h{" "}
+                  </p>
+                </span>
+                <span className="flex items-center gap-2">
+                  <img src="/Images/mapicon.svg" alt="" className="h-6 w-6" />
+                  <p>{res.lieu}</p>
+                </span>
               </CardDescription>
             </CardHeader>
             <CardContent>

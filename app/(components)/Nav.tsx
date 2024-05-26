@@ -40,6 +40,7 @@ const Nav = ({
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    console.log(showMenu)
   };
 
   return (
@@ -85,7 +86,7 @@ const Nav = ({
           {session ? (
             <>
               <button
-                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1"
+                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1 hover:shadow-md ease-in-out duration-150"
                 onClick={toggleMenu}
               >
                 <img
@@ -97,14 +98,12 @@ const Nav = ({
                       : ""
                   } ${userImage ? "" : "bg-white p-1"}  `}
                 />
-                <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center">
+                <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center gap-2">
                   <p className="text-lg text-white">Profil</p>
                   <img
-                    src="/Images/chevronn2.svg"
+                    src="/Images/chevronn4.svg"
                     alt=""
-                    className={`h-6 w-6 -rotate-90 ease-in-out duration-150 ${
-                      showMenu ? "-rotate-180 " : ""
-                    } `}
+                    className={`h-6 w-6 ease-in-out duration-150 ${showMenu && "-rotate-90"} `}
                   />
                 </div>
               </button>
@@ -112,7 +111,7 @@ const Nav = ({
           ) : (
             <>
               <button
-                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1"
+                className="flex items-center gap-4 rounded-full bg-[#C91313] px-4 py-1 hover:shadow-md ease-in-out duration-150"
                 onClick={toggleMenu}
               >
                 <img
@@ -124,14 +123,12 @@ const Nav = ({
                       : ""
                   } ${userImage ? "" : "bg-white p-1"}  `}
                 />
-                <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center">
+                <div className="transition-transform duration-150 transform hover:translate-x-1 flex items-center gap-2">
                   <p className="text-lg text-white">Profil</p>
                   <img
-                    src="/Images/chevronn2.svg"
+                    src="/Images/chevronn4.svg"
                     alt=""
-                    className={`h-6 w-6 -rotate-90 ease-in-out duration-150 ${
-                      showMenu ? "-rotate-180 " : ""
-                    } `}
+                    className={`h-6 w-6 ease-in-out duration-150 ${showMenu && "-rotate-90"}`}
                   />
                 </div>
               </button>

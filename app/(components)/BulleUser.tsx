@@ -68,7 +68,7 @@ function BulleUser({ allUsers }: any) {
         const finalY = getRandomDirection() * getRandomPosition(100); // Position d'arrivée aléatoire sur l'axe Y
 
         return (
-          <Link key={index} href={`/MonCompte/Messages/${user.userId}`} className=" ">
+          <Link key={index} href={`/MonCompte/Annonces/${user.userId}`} className=" ">
             <motion.div
               
               className="flex text-center justify-center items-center h-12 w-12 xl:h-20 xl:w-20 rounded-full bg-[#f4f4f7] border-[#d4d4d4] border-2 relative "

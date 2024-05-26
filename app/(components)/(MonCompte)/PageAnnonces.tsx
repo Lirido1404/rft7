@@ -28,7 +28,7 @@ async function PageAnnonces({ idOfAccount }: { idOfAccount: string }) {
 
 
   const userImage = session?.user?.image;
-
+  const userName = fetchAnnonces[0]?.nomProprio;
 
   const returnTag = (tag: string) => {
     switch (tag) {
@@ -100,7 +100,7 @@ async function PageAnnonces({ idOfAccount }: { idOfAccount: string }) {
           )}
         </div>
         <div>
-          <NomProprioCom2  />
+        <p className='text-4xl'> {userName} </p>
           <div className="flex gap-2">
             <span className="flex gap-1 items-center">
               <img src="/Images/cardannounce.svg" alt="" className="w-8 h-8" />

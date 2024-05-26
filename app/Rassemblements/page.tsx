@@ -15,9 +15,9 @@ async function page() {
  const userId = session?.user?.id;
  const ppUser = session?.user?.image;
   return (
-    <>
+    <div className="h-[80vh] flex flex-col justify-center">
       <Drawer>
-        <div className="flex flex-col gap-2 p-16">
+        <div className="flex flex-col gap-2 pl-16">
           <h2 className="font-bold text-5xl">Dates de rassemblements</h2>
            {session ? <DrawerTrigger className="w-60 rounded text-white bg-[#1A73E8] px-4 py-2 shadow">
           Je crée mon rasso !
@@ -59,7 +59,7 @@ async function page() {
           </div>
         </DrawerContent>
       </Drawer>
-    </>
+    </div>
   );
 }
 
