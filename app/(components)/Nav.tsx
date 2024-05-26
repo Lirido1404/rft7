@@ -38,7 +38,7 @@ const Nav = ({
   const userImage = session?.user?.image;
   const [showMenu, setShowMenu] = useState(false);
   const userId = session?.user?.id;
-  const prenom = session?.user?.name?.split(" ")[0];
+  const prenom = session?.user?.name?.split(" ")[0] || session?.user?.nom;
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -96,15 +96,7 @@ const Nav = ({
               alt="logo"
             />
           </Link>
-          <SheetTrigger asChild>
-            <button>
-              <img
-                src="/Images/shoppingCart.svg"
-                className="h-10 w-10"
-                alt="shopping cart"
-              />
-            </button>
-          </SheetTrigger>
+          
           <SheetContent>
             <SheetHeader>
               <SheetTitle>Panier</SheetTitle>
@@ -156,7 +148,7 @@ const Nav = ({
                   <Link href={`/Payments/${totalPrice}`}>
                   <Button >Payer {totalPrice} €</Button></Link>
                 ) : (
-                  <Button>Payer {totalPrice} €</Button>
+                  <Button>Revenir</Button>
                 )}
               </SheetClose>
             </SheetFooter>
@@ -166,7 +158,7 @@ const Nav = ({
           <NavLink href="/Rassemblements">Rassemblements</NavLink>
           <NavLink href="/EspaceDeVente">Espace de vente</NavLink>
         </div>
-        <div className="relative">
+        <div className="relative flex gap-2">
           {session ? (
             <>
               <button
@@ -201,7 +193,7 @@ const Nav = ({
                 onClick={toggleMenu}
               >
                 <img
-                  src={userImage || "/Images/profilsvg1.svg"}
+                  src={userImage || "/Images/profilsvg2.svg"}
                   alt="user profile"
                   className={`w-8 h-8 rounded-full cursor-pointer  ${
                     showMenu
@@ -234,7 +226,7 @@ const Nav = ({
                 <div>
                   <div className="p-2">
                     <p className="text-left overflow-hidden whitespace-nowrap max-w-full">
-                      <span> {userImage ? "Salut" : ""}</span>{" "}
+                      <span> {prenom ? "Salut" : ""}</span>{" "}
                       <span className="font-bold ">{prenom}</span>
                     </p>
                     {session ? (
@@ -272,7 +264,17 @@ const Nav = ({
               </motion.div>
             )}
           </AnimatePresence>
+          <SheetTrigger asChild>
+            <button className="bg-[#C91313] rounded-full p-2">
+              <img
+                src="/Images/shoppingCart.svg"
+                className="h-6 w-6"
+                alt="shopping cart"
+              />
+            </button>
+          </SheetTrigger>
         </div>
+        
       </nav>
     </header>
   );

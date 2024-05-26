@@ -1,9 +1,10 @@
+import ResPaiement from '@/app/(components)/ResPaiement'
 import React from 'react'
 
 function page({params}:any) {
     const prixPaiement = params.number
   return (
-    <div> {prixPaiement} </div>
+    <div> <ResPaiement prixPaiement={prixPaiement} /> </div>
   )
 }
 

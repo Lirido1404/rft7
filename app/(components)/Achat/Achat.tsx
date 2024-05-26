@@ -58,7 +58,7 @@ function Achat({ infocar }: any) {
         className="text-white"
         onClick={handleAlert}
       >
-        Buy car
+        Acheter !
       </Button>
       </SheetTrigger>
         </>
@@ -68,7 +68,7 @@ function Achat({ infocar }: any) {
         className="text-white"
         onClick={handleToast}
       >
-        Buy car
+        Acheter !
       </Button>
       </>}
     

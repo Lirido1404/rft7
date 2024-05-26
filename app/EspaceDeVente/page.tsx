@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import FetchDataComp from "../(components)/FetchDataComp";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 function Page({ searchParams }: any) {
   let page = parseInt(searchParams.page, 10);
   const querycar = searchParams?.car || "";
@@ -9,6 +10,11 @@ function Page({ searchParams }: any) {
 
   return (
     <div>
+      <Link href={"/Offre"} className="flex w-full ">
+            <Button className="py-2 w-full font-bold text-white" variant="destructive">
+              Déposer mon offre
+            </Button>
+          </Link>
       <Suspense
         fallback={
           <>

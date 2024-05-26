@@ -16,11 +16,13 @@ export async function fetchDataCar(
           .limit(perPage);
        
      } else {
-       items = await Cars.aggregate([
-         { $match: { name: { $regex: query, $options: "i" } } },
-         { $sample: { size: perPage } },
-       ]);
-     }
+      items = await Cars.aggregate([
+        { $match: { name: { $regex: query, $options: "i" } } },
+        { $sample: { size: perPage } },
+        { $limit: 7 } // Limite à 8 éléments
+      ]);
+   }
+   
     }else{
       items = await Cars.find({tag:marquequery})
           

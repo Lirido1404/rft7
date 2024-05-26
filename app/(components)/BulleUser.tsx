@@ -3,8 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
-function BulleUser({ allUsers }: any) {
+function BulleUser({ allUsers,twoCars }: any) {
   const getRandomPosition = (max: number) => {
     return Math.random() * max;
   };
@@ -20,8 +22,56 @@ function BulleUser({ allUsers }: any) {
   const initialX = 50; // Point de départ commun (au centre horizontalement)
   const initialY = 50; // Point de départ commun (au centre verticalement)
 
+
+  const returnTag = (tag: string) => {
+    switch (tag) {
+      case "bmw":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/bmwlogo.svg"
+                alt="bmwlogo"
+                className="h-4 w-4"
+              />
+            </div>
+          </>
+        );
+        break;
+      case "mercedes":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/mercedeslogo.svg"
+                alt="merceslogo"
+                className="h-4 w-4"
+              />{" "}
+            </div>
+          </>
+        );
+        break;
+      case "audi":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/audilogo.svg"
+                alt="audilogo"
+                className="h-4 w-4"
+              />{" "}
+            </div>
+          </>
+        );
+        break;
+    }
+  };
+
   return (
-    <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8 h-96 grid grid-cols-2">
+    <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8  grid grid-cols-2">
       <div className="p-8">
         <h2 className="text-lg font-bold text-[#2a292f]">
           Venez, discutez, mais aussi achetez et louez !
@@ -56,6 +106,39 @@ function BulleUser({ allUsers }: any) {
               Déposer mon offre
             </Button>
           </Link>
+        </div>
+        <p className="mt-4 text-[#2a292f]">Quelques annonces :</p>
+        <div className="flex items-center gap-8 mt-1 ">
+          
+        {twoCars?.map((car: any, index: number) => (
+            <motion.div
+              key={car._id}
+              className=""
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.07 }}
+            >
+              <Link href={`/EspaceDeVente/${car._id}`}>
+                <Card className="hover:shadow-lg ease-in-out duration-150 relative border-2 border-[#C91313] h-24 w-40">
+                  <div className="absolute flex flex-col gap-1 -left-4 top-1">
+                    <Badge className="inline-flex items-center bg-[#f4f4f7] border-2 border-white rounded-full px-2 text-black hover:bg-white shadow">
+                      <span className="flex gap-1 items-center">
+                        {returnTag(car.tag)}
+                        <p className="font-bold text-[9px] "> {car.name} </p>
+                      </span>
+                    </Badge>
+
+                    
+                  </div>
+                  <img
+                    src={car.image}
+                    alt=""
+                    className="h-full w-full rounded-lg ease-in-out duration-150 object-cover hover:scale-105"
+                  />
+                </Card>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
       <div className="h-full w-full flex items-start justify-end relative">
