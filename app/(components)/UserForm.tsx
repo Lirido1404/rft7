@@ -95,8 +95,8 @@ function UserForm() {
       <p className="text-red-400"> {errorMessage} </p>
   </div> */}
 
-      <div>
-        <Tabs defaultValue="Connexion" className="w-[400px]">
+      <div className="relative">
+        <Tabs defaultValue="Connexion" className="w-[300px] lg:w-[400px]">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="Connexion">Connexion</TabsTrigger>
             <TabsTrigger value="Inscription">Inscription</TabsTrigger>

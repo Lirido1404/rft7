@@ -73,7 +73,7 @@ function CommentsForm({
   };
 
   return (
-    <>
+    <div className="pb-8">
       <Separator className="w-[60%] mx-auto mt-8" />
       <form
         onSubmit={handleSubmit}
@@ -94,7 +94,7 @@ function CommentsForm({
           <img src="/Images/sendd.svg" className="h-6 w-6" alt="send" />
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

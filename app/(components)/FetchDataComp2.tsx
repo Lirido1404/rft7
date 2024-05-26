@@ -47,7 +47,6 @@ async function FetchDataComp2({ id }: any) {
   const session = await getServerSession(options);
 
   const response = await fetchOneCar(id.id);
-  console.log(response);
 
   const randomCars: any = await fetchDataCar2(); // Définir le type explicite pour `cars`
 
@@ -109,7 +108,7 @@ async function FetchDataComp2({ id }: any) {
         {returnLogo()}
       </div>
       <div className="mt-6">
-        <Achat/>
+        <Achat infocar={response}/>
       </div>
       <div className="flex flex-col gap-2 justify-center w-full rounded-xl border p-4 mt-8">
         <div className="flex gap-2 items-center">

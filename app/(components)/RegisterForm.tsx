@@ -52,9 +52,10 @@ function RegisterForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
+        <CardTitle className="flex items-center gap-4">
           {" "}
           <p className="text-3xl font-bold">Inscription</p>
+          <img src="/Images/logocar2.png" className="h-16 w-16" alt="" />
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">

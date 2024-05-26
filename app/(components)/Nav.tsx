@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/sheet";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useDateStore } from "@/app/(store)/store"; // Assurez-vous de fournir le bon chemin vers le store
+import { Separator } from "@/components/ui/separator";
 
 interface NavLinkProps {
   href: string;
@@ -31,7 +33,7 @@ const Nav = ({
   session: any;
   commentOfIdUser: number;
   participationOfIdUser: number;
-  fetchAnnoncesCount:number;
+  fetchAnnoncesCount: number;
 }) => {
   const userImage = session?.user?.image;
   const [showMenu, setShowMenu] = useState(false);
@@ -40,7 +42,19 @@ const Nav = ({
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-    console.log(showMenu)
+    console.log(showMenu);
+  };
+
+  const addBuyingDetail = useDateStore((state) => state.setBuyingDetails);
+  const buyingdetails = useDateStore((state) => state.buyingdetails);
+  const removeBuyingDetail = useDateStore((state) => state.removeBuyingDetail);
+
+  const totalPrice = buyingdetails.reduce((total, item) => {
+    return total + (item.price || 0);
+  }, 0);
+
+  const handleRemoveItem = (index: number) => {
+    removeBuyingDetail(index);
   };
 
   return (
@@ -68,12 +82,34 @@ const Nav = ({
             <SheetHeader>
               <SheetTitle>Panier</SheetTitle>
               <SheetDescription>
-                Votre panier est composé de x éléments.
+                Votre panier est composé de {buyingdetails.length} {buyingdetails.length > 1 ? "éléments" : "élément"} :
+                <div>
+                  {buyingdetails.map((item, index) => (
+                    <div key={index} className="flex items-center gap-4 my-2">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="h-20 w-32 rounded-lg border"
+                      />
+                      <div className="flex flex-col flex-grow">
+                        <p className="font-bold">{item.name}</p>
+                        <p>{item.price} €</p>
+                      </div>
+                      <button
+                        className="bg-red-500 text-white p-2 rounded"
+                        onClick={() => handleRemoveItem(index)}
+                      >
+                        Supprimer
+                      </button>
+                    </div>
+                  ))}
+                  <Separator className="" />
+                </div>
               </SheetDescription>
             </SheetHeader>
-            <SheetFooter>
+            <SheetFooter className="mt-4">
               <SheetClose asChild>
-                <Button type="submit">Payer</Button>
+                {totalPrice > 0 ? <Button type="submit">Payer {totalPrice} €</Button> : <Button>Payer {totalPrice} €</Button>}
               </SheetClose>
             </SheetFooter>
           </SheetContent>
@@ -103,7 +139,9 @@ const Nav = ({
                   <img
                     src="/Images/chevronn4.svg"
                     alt=""
-                    className={`h-6 w-6 ease-in-out duration-150 ${showMenu && "-rotate-90"} `}
+                    className={`h-6 w-6 ease-in-out duration-150 ${
+                      showMenu && "-rotate-90"
+                    } `}
                   />
                 </div>
               </button>
@@ -128,7 +166,9 @@ const Nav = ({
                   <img
                     src="/Images/chevronn4.svg"
                     alt=""
-                    className={`h-6 w-6 ease-in-out duration-150 ${showMenu && "-rotate-90"}`}
+                    className={`h-6 w-6 ease-in-out duration-150 ${
+                      showMenu && "-rotate-90"
+                    }`}
                   />
                 </div>
               </button>
@@ -159,9 +199,16 @@ const Nav = ({
                     ) : (
                       <Link
                         href={"/Account"}
-                        className="text-sm text-center text-gray-500 cursor-pointer hover:underline whitespace-nowrap hover:text-[#1A73E8] ease-in-out duration-200 italic"
+                        className="text-sm text-center text-gray-500 cursor-pointer hover:underline whitespace-nowrap italic"
                       >
-                        Me Connecter
+                        <div className="flex items-center gap-2 hover:bg-gray-100 ease-in-out duration-200 rounded-lg p-2">
+                          Me Connecter
+                          <img
+                            src="Images/logocar2.png"
+                            className="h-12 w-12"
+                            alt=""
+                          />
+                        </div>
                       </Link>
                     )}
                   </div>

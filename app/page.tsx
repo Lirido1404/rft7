@@ -80,9 +80,10 @@ export default function Home({ searchParams }: any) {
 
             <p className="w-[45ch] text-lg mt-4 text-justify text-[#2a292f]">
               Vous aimez les voitures, les bruits de voitures et les courses, et
-              nous aussi ! C&apos;est pourquoi nous visons à transmettre cette
-              passion, en ayant des échanges autour de vieilles bonne soirées et
-              vielles bonnes courses.
+              <span className="text-red-500"> RFT</span> aussi ! C&apos;est
+              pourquoi nous visons à transmettre cette passion, en ayant des
+              échanges autour de vieilles bonne soirées et vielles bonnes
+              courses.
             </p>
             <Link href={"/Rassemblements"}>
               <Button
@@ -119,7 +120,7 @@ export default function Home({ searchParams }: any) {
           <h2 className="text-2xl font-bold text-[#2a292f]">
             Votre passion, nos services
           </h2>
-          <ListPage1/>
+          <ListPage1 />
         </div>
       </div>
 
@@ -196,7 +197,9 @@ export default function Home({ searchParams }: any) {
               className="w-96 mt-4"
               placeholder="Entrez le nom de votre ville"
             ></Input>
-            <p className="text-sm italic text-red-500 opacity-50">Pas encore fonctionnel</p>
+            <p className="text-sm italic text-red-500 opacity-50">
+              Pas encore fonctionnel
+            </p>
           </div>
         </div>
       </div>
