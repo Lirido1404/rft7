@@ -54,8 +54,35 @@ const Nav = ({
   }, 0);
 
   const handleRemoveItem = (index: number) => {
+    const updatedBuyingDetails = buyingdetails.filter((_, i) => i !== index);
     removeBuyingDetail(index);
+    addBuyingDetail(updatedBuyingDetails);
   };
+
+  const handleRemoveItem2 = (index: number) => {
+    setTimeout(() => {
+        const updatedBuyingDetails = buyingdetails.filter((_, i) => i !== index);
+        removeBuyingDetail(index);
+        
+        addBuyingDetail(updatedBuyingDetails);
+    }, 1000); 
+};
+  const [class1,setClass1] = useState("")
+  const [class2,setClass2] = useState("")
+
+  const [isDraged,setIsDraged] = useState(false)
+
+  const handleDrag = ()=>{
+    setClass1("bg-red-300")
+  }
+
+
+  const handleDragEnd = ()=>{
+    setClass1("")
+  }
+
+  
+
 
   return (
     <header className="w-full h-20 bg-[#f4f4f7]">
@@ -82,34 +109,55 @@ const Nav = ({
             <SheetHeader>
               <SheetTitle>Panier</SheetTitle>
               <SheetDescription>
-                Votre panier est composé de {buyingdetails.length} {buyingdetails.length > 1 ? "éléments" : "élément"} :
                 <div>
-                  {buyingdetails.map((item, index) => (
-                    <div key={index} className="flex items-center gap-4 my-2">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="h-20 w-32 rounded-lg border"
-                      />
-                      <div className="flex flex-col flex-grow">
-                        <p className="font-bold">{item.name}</p>
-                        <p>{item.price} €</p>
-                      </div>
-                      <button
-                        className="bg-red-500 text-white p-2 rounded"
-                        onClick={() => handleRemoveItem(index)}
-                      >
-                        Supprimer
-                      </button>
-                    </div>
-                  ))}
-                  <Separator className="" />
+                  <p>
+                    Votre panier est composé de {buyingdetails.length}{" "}
+                    {buyingdetails.length > 1 ? "éléments" : "élément"} :
+                  </p>
+                  <div>
+                    {buyingdetails.map((item, index) => (
+                      <>
+                        <motion.div
+                          drag="x"
+                          onDrag={handleDrag}
+                          key={index}
+                          className={`flex items-center gap-4 my-2 hover:bg-gray-100 ease-in-out duration-200 p-2 rounded-lg relative ${class1} cursor-pointer`}
+                          onDragEnd={() => handleRemoveItem2(index)}
+                          
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="h-20 w-32 rounded-lg border select-none	"
+                            
+
+                          />
+                          <div className="flex flex-col flex-grow">
+                            <p className="font-bold">{item.name}</p>
+                            <p>{item.price} €</p>
+                          </div>
+                          <button
+                            className="bg-red-500 text-white h-8 w-8 flex justify-center items-center absolute rounded-lg top-2 right-2"
+                            onClick={() => handleRemoveItem(index)}
+                          >
+                            X
+                          </button>
+                        </motion.div>
+                        <Separator className="" />
+                      </>
+                    ))}
+                  </div>
                 </div>
               </SheetDescription>
             </SheetHeader>
             <SheetFooter className="mt-4">
               <SheetClose asChild>
-                {totalPrice > 0 ? <Button type="submit">Payer {totalPrice} €</Button> : <Button>Payer {totalPrice} €</Button>}
+                {totalPrice > 0 ? (
+                  <Link href={`/Payments/${totalPrice}`}>
+                  <Button >Payer {totalPrice} €</Button></Link>
+                ) : (
+                  <Button>Payer {totalPrice} €</Button>
+                )}
               </SheetClose>
             </SheetFooter>
           </SheetContent>

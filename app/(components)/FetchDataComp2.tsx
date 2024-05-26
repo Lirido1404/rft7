@@ -108,7 +108,7 @@ async function FetchDataComp2({ id }: any) {
         {returnLogo()}
       </div>
       <div className="mt-6">
-        <Achat infocar={response}/>
+        <Achat infocar={response} />
       </div>
       <div className="flex flex-col gap-2 justify-center w-full rounded-xl border p-4 mt-8">
         <div className="flex gap-2 items-center">

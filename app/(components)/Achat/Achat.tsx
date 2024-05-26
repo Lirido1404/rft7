@@ -15,6 +15,9 @@ import { useDateStore } from "@/app/(store)/store"; // Assurez-vous de fournir l
 
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+
 
 
 function Achat({ infocar }: any) {
@@ -26,20 +29,50 @@ function Achat({ infocar }: any) {
     const updatedDetails = [...buyingdetails, infocar];
     addBuyingDetail(updatedDetails);
 
-  };
+  };  
+  
+  const { data: session } = useSession();
+
 
   const { toast }:any = useToast();
 
+  const handleToast=()=>{
+    toast({
+      title: "Vous n'êtes pas connecté.",
+
+      action: (
+        <ToastAction altText="Me connecter" className="border-[#FF7E14]">
+          <Link href={"/Account"}>Me connecter</Link> 
+        </ToastAction>
+      ),
+    });
+  }
+
   return (
-    <SheetTrigger asChild>
-      <Button
+    <>
+      {session ? (
+        <>
+        <SheetTrigger asChild>
+        <Button
         variant="destructive"
         className="text-white"
         onClick={handleAlert}
       >
         Buy car
       </Button>
-    </SheetTrigger>
+      </SheetTrigger>
+        </>
+      ):<>
+      <Button
+        variant="destructive"
+        className="text-white"
+        onClick={handleToast}
+      >
+        Buy car
+      </Button>
+      </>}
+    
+    </>
   );
 }
 
