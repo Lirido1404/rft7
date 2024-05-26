@@ -32,7 +32,10 @@ function EspaceComm({
   };
 
   return (
-    <div className="mt-6">
+    <div className="relative">
+            <div className="blob4 absolute top-8 right-20 opacity-70 w-60 h-60 "></div>
+
+    <div className="mt-6 bg-[#F4F4F760] rounded-lg p-8 ">
       {res?.map((comment: any, index: number) => (
         <div
           key={comment._id}
@@ -49,7 +52,7 @@ function EspaceComm({
           />
           <div
             className={`w-[70%] rounded-2xl p-4 shadow relative ${
-              sessionid === comment.idOfUser ? "bg-[#ff6262] shadow-lg" : ""
+              sessionid === comment.idOfUser ? "dgmess shadow-lg" : "bg-white"
             } ${index === res.length - 1 ? "elementascale" : ""}`}
           >
             <div className="flex justify-between">
@@ -103,7 +106,9 @@ function EspaceComm({
                 {comment.contentOfComment}
               </p>
             )}
-            <p className="text-sm absolute bottom-0 right-0 py-2 px-4 text-gray-400">
+            <p className={`text-sm absolute bottom-0 right-0 py-2 px-4 text-gray-400 ${
+              sessionid === comment.idOfUser ? "text-white" : ""
+            }`}>
               <span className="italic">
                 {formatTimestamp(comment.createdAt)}
               </span>
@@ -111,6 +116,7 @@ function EspaceComm({
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }

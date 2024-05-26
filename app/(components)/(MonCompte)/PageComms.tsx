@@ -45,7 +45,9 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
 
   const userImage = session?.user?.image;
   return (
-    <div>
+    <div className="min-h-[80vh] relative">
+                        <div className="blob absolute top-32 right-40 opacity-70 w-[300px] h-[300px] "></div>
+
       <div className="flex items-center gap-2 p-24">
         <div>
           {session?.user?.id == idOfAccount ? (

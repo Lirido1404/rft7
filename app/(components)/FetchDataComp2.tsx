@@ -120,7 +120,7 @@ async function FetchDataComp2({ id }: any) {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-10 gap-6">
+      <div className="grid grid-cols-2 mt-10 gap-6 relative">
         <div className="p-0">
           <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] CardBG mx-auto text-white relative overflow-hidden h-96">
             <div className="relative h-full">
@@ -132,11 +132,15 @@ async function FetchDataComp2({ id }: any) {
                 className="w-full h-full absolute object-cover"
               />
 
+
               
             </div>
           </Card>
+          <div className="blob absolute -top-40 -right-20 opacity-70 w-[180px] h-[180px] "></div>
+
         </div>
         <table className="shadow hover:shadow-lg">
+
           <thead>
             <tr>
               <th>Spécificités</th>
@@ -251,7 +255,9 @@ async function FetchDataComp2({ id }: any) {
 
       <h2 className="text-4xl font-bold mt-20 pcar">Elles pourraient aussi vous intéresser : </h2>
 
-      <div className="mt-14">
+      <div className="mt-14 relative">
+      <div className="blob2 absolute -top-8 -left-20 opacity-70 w-[300px] h-[300px] "></div>
+
         <PartieScrollArea randomCars={randomCars} />
       </div>
     </div>

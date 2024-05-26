@@ -16,7 +16,7 @@ async function page() {
 
 
   return (
-    <div>
+    <div className="min-h-[80vh]">
       {session ? <>
         <CarsForm
         sessionName={sessionName}

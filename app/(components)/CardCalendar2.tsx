@@ -98,7 +98,7 @@ function CardCalendar2({ newdate,userId }: any) {
 
   return (
     <div>
-      <p className="text-white  rounded text-center">
+      <p className="text-[#2a292f]  rounded text-center">
         Emploi du temps pour le <span className="font-bold">{date}</span>{" "}
       </p>
       <Separator className="mt-2 w-[50%] mx-auto " />
@@ -114,7 +114,7 @@ function CardCalendar2({ newdate,userId }: any) {
             <CardContent className="p-1">
               <span className="text-sm flex items-center">
                 <img src="/Images/crosss.svg" alt="" className="w-6 h-6" />
-                <p>Il n&apos;y a pas d&apos;évènement aujourd&apos;hui</p>
+                <p className="text-[#2a292f]">Il n&apos;y a pas d&apos;évènement aujourd&apos;hui</p>
               </span>
             </CardContent>
           </Card>

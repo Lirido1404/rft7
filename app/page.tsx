@@ -71,6 +71,8 @@ export default function Home({ searchParams }: any) {
           </Link>
         </div>*/}
       <div className="relative w-full ">
+      <div className="blob2 absolute -top-60 -left-20 opacity-70 w-80 h-80 "></div>
+
         <div className="ml-32 mt-20">
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">BMW M4 F80</p>
@@ -95,6 +97,7 @@ export default function Home({ searchParams }: any) {
             </Link>
           </div>
         </div>
+        
         <img
           src="/Images/bmwmw1.png"
           alt="evo2"
@@ -106,12 +109,13 @@ export default function Home({ searchParams }: any) {
           className="drop-shadow-xl absolute bottom-0 right-0 animvoit2 w-[400px] 2xl:w-[600px]"
         />
       </div>
-
+      
       <div className="w-[70%] mx-auto mt-12">
         <Separator />
       </div>
 
-      <div className="grid grid-cols-2 w-[85%] mx-auto  bg-[#f4f4f7] mt-12 rounded-lg ">
+      <div className="grid grid-cols-2 w-[85%] mx-auto  bg-[#f4f4f7] mt-12 rounded-lg relative ">
+
         <div className="h-full w-full flex items-center relative">
           <div className="absolute w-8 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
           <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
@@ -122,7 +126,11 @@ export default function Home({ searchParams }: any) {
           </h2>
           <ListPage1 />
         </div>
+        <div className="blob absolute -top-20 -right-6 opacity-70 w-80 h-80 rotate-12"></div>
+
       </div>
+
+      
 
       <div className="w-[70%] mx-auto mt-12">
         <Separator />
@@ -148,14 +156,18 @@ export default function Home({ searchParams }: any) {
       <div className="w-[70%] mx-auto mt-12">
         <Separator />
       </div>
-      <div className="w-[80%] mx-auto">
+      <div className="w-[80%] mx-auto relative">
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
           Découvrez... et vendez
         </h3>
+        <div className="blob3 absolute -top-40 -left-6 opacity-90 w-40 h-40 rotate-12"></div>
+
       </div>
 
       <Suspense fallback={<>Loading...</>}>
+        
         <FetchUsers />
+        
       </Suspense>
       <div className="w-[70%] mx-auto mt-12">
         <Separator />
@@ -180,7 +192,9 @@ export default function Home({ searchParams }: any) {
             ></iframe>
           </div>
         </div>
-        <div className="">
+        <div className="relative">
+        <div className="blob3 absolute -top-40 -right-6 opacity-70 w-48 h-48 rotate-12"></div>
+
           <h4 className="text-lg font-bold text-[#2a292f]">
             Allumez vos clignotants et repérez les rassos les plus proches de
             votre position !

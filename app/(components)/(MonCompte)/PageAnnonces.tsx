@@ -75,7 +75,9 @@ async function PageAnnonces({ idOfAccount }: { idOfAccount: string }) {
     }
   };
   return (
-    <div>
+    <div className="min-h-[80vh] relative">
+                  <div className="blob absolute top-10 right-20 opacity-70 w-[300px] h-[300px] "></div>
+
       <div className="flex items-center gap-2 p-24">
         <div>
           {session?.user?.id == idOfAccount ? (

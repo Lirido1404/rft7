@@ -131,8 +131,6 @@
   transform: rotate(-18deg);
 }
 
-
-
 @keyframes trsl1 {
   0% {
     transform: translate(-100px);
@@ -151,17 +149,115 @@
   }
 }
 
-.imgbgmtune{
-  animation: trsl1 0.75s ease-in-out forwards,apparaitre 0.75s ease-in-out forwards;
+.imgbgmtune {
+  animation: trsl1 0.75s ease-in-out forwards,
+    apparaitre 0.75s ease-in-out forwards;
 }
 
-
-.imgmerctune{
-  animation: trsl2 0.75s ease-in-out 0.5s forwards,apparaitre 0.75s ease-in-out 0.5s forwards;
+.imgmerctune {
+  animation: trsl2 0.75s ease-in-out 0.5s forwards,
+    apparaitre 0.75s ease-in-out 0.5s forwards;
   opacity: 0;
 }
 
-.divgrad2{
-  background: linear-gradient(to right, #cb2d3e, #ef473a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.divgrad2 {
+  background: linear-gradient(
+    to right,
+    #cb2d3e,
+    #ef473a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.blob {
+  overflow: hidden;
+  
+  border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  background: linear-gradient(
+    to right,
+    #F4F4F7,
+    #C91313
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  animation: morph 6s linear infinite;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  }
+  33% {
+    /* Ajoutez ici la propriété que vous souhaitez animer à 33% */
+    border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%;
+  }
+  66% {
+    border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
+  }
+}
+
+
+.blob2 {
+  overflow: hidden;
+  border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+  background: linear-gradient(to right, #eb3349, #F4F4F7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  animation: morph2 6s ease-in-out infinite;
+}
+
+@keyframes morph2 {
+  0%, 100% {
+    border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+  }
+  33% {
+    border-radius: 40% 60% 60% 40% / 60% 50% 40% 60%;
+  }
+  66% {
+    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  }
+}
+
+
+.blob3 {
+  overflow: hidden;
+  border-radius: 45% 55% 35% 65% / 50% 30% 70% 50%;
+  background: linear-gradient(to right, #ff758c, #ff7e7e);
+  animation: morph3 6s ease-in-out infinite;
+}
+
+@keyframes morph3 {
+  0%, 100% {
+    border-radius: 45% 55% 35% 65% / 50% 30% 70% 50%;
+  }
+  33% {
+    border-radius: 55% 45% 65% 35% / 60% 40% 60% 40%;
+  }
+  66% {
+    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  }
+}
+
+
+.blob4 {
+  overflow: hidden;
+  border-radius: 40% 60% 70% 30% / 60% 40% 30% 70%;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  animation: morph4 8s ease-in-out infinite;
+}
+
+@keyframes morph4 {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 60% 40% 30% 70%;
+  }
+  25% {
+    border-radius: 70% 30% 40% 60% / 50% 70% 30% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 70% 50% 70% 50%;
+  }
+  75% {
+    border-radius: 30% 70% 50% 50% / 40% 60% 60% 40%;
+  }
+}
+
+.dgmess{
+  background: linear-gradient(to right, #d66d75, #e29587); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }

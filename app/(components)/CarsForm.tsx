@@ -140,8 +140,10 @@ function CarsForm({
     <div className="grid grid-cols-2">
       <form
         onSubmit={handlesubmit}
-        className="grid grid-cols-2 gap-6 mt-8 w-[80%] mx-auto"
+        className="grid grid-cols-2 gap-6 mt-8 w-[80%] mx-auto relative"
       >
+              <div className="blob4 absolute -top-10 -left-20 opacity-70 w-20 h-20 rotate-12"></div>
+
         <div className="flex flex-col gap-1">
           <label htmlFor="">Image :</label>
           <input
@@ -227,7 +229,9 @@ function CarsForm({
           />
         </div>
       </form>
-      <div className="grid grid-cols-2 gap-8 p-8">
+      <div className="grid grid-cols-2 gap-8 p-8 relative">
+      <div className="blob absolute top-40 right-20 opacity-70 w-80 h-80 rotate-12"></div>
+
         <div className="flex flex-col ">
           {formData.image !== "" ? (
             <motion.div

@@ -165,7 +165,9 @@ async function FetchOneEvent({ id }: any) {
           ></iframe>
         </div>{" "}
       </div>
-      <div className="flex gap-20 pl-20">
+      <div className="flex gap-20 pl-20 relative">
+      <div className="blob4 absolute -top-40 left-20 opacity-70 w-[400px] h-[400px] "></div>
+
         <div className="w-[40%] ">
           <Card className=" sticky top-8 ">
             <CardHeader>

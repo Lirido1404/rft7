@@ -15,7 +15,9 @@ async function page() {
  const userId = session?.user?.id;
  const ppUser = session?.user?.image;
   return (
-    <div className="h-[80vh] flex flex-col justify-center">
+    <div className="h-[80vh] flex flex-col justify-center relative">
+              <div className="blob3 absolute top-20 right-20 opacity-70 w-[400px] h-[400px] "></div>
+
       <Drawer>
         <div className="flex flex-col gap-2 pl-16">
           <h2 className="font-bold text-5xl">Dates de rassemblements</h2>
@@ -23,7 +25,9 @@ async function page() {
           Je crée mon rasso !
           </DrawerTrigger> : <DrawerTriggercomp/> }
         </div>
-        <div className="flex flex-col lg:flex-row justify-center  gap-4 w-[70%] mx-auto ">
+        <div className="flex flex-col lg:flex-row justify-center  gap-4 w-[70%] mx-auto relative ">
+        <div className="blob2 absolute -bottom-40 -left-12 opacity-70 w-80 h-80 "></div>
+
           <div className="flex flex-col lg:flex-row gap-4">
             <CalandarComp />
             <div className="p-4 hidden lg:flex">

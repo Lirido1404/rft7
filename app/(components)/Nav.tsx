@@ -152,6 +152,8 @@ const Nav = ({
                 )}
               </SheetClose>
             </SheetFooter>
+            <div className="blob absolute -top-32 left-20 opacity-70 w-[180px] h-[180px] "></div>
+
           </SheetContent>
         </div>
         <div className="flex items-center gap-3">

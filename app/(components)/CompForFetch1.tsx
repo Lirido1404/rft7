@@ -85,7 +85,8 @@ function CompForFetch1({
   };
 
   return (
-    <div className="flex">
+    <div className="flex relative">
+
       <div className="w-[30%] flex items-center flex-col">
         <FiltreVoiture />
       </div>
@@ -139,10 +140,14 @@ function CompForFetch1({
           </div>
         </div>{" "}
         <div
-          className={`grid ${
+          className={`grid relative ${
             query == "" ? "grid-cols-2" : "grid-cols-3"
           } w-[100%] mx-auto mt-6 gap-10 `}
         >
+                            <div className="blob absolute top-8 left-20 opacity-20 w-[700px] h-[700px] "></div>
+                            <div className="blob absolute top-40 right-20 opacity-20 w-[500px] h-[500px] "></div>
+
+
           {res?.items.map((car: any, index: number) => (
             <motion.div
               key={car._id}
