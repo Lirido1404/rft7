@@ -18,7 +18,7 @@ function ResPaiement({prixPaiement} : any) {
 
     return (
         <div className='h-[80vh] flex justify-center flex-col items-center'>
-            <img src="/images/logocar2.png" className='w-80 h-80' alt="" />
+            <img src="/Images/logocar2.png" className='w-80 h-80' alt="" />
             <h2 className='text-3xl text-center'> Paiement réussi ! </h2>
             <p className='text-lg text-center'> RFT vous remercie d&apos;avoir effectué votre paiement de <span className='font-bold'>{prixPaiement} €.</span>  </p>
             <Link href={"/"}>
