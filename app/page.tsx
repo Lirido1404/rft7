@@ -70,17 +70,17 @@ export default function Home({ searchParams }: any) {
             />
           </Link>
         </div>*/}
-      <div className="relative w-full ">
-      <div className="blob2 absolute -top-60 -left-20 opacity-70 w-80 h-80 "></div>
+      <div className="relative w-full">
+      <div className="blob2 absolute -top-20 -left-0 lg:-top-60 lg:-left-20 opacity-70 w-20 h-20 lg:w-80 lg:h-80 "></div>
 
-        <div className="ml-32 mt-20">
+        <div className="lg:ml-32 w-[80%]  mx-auto lg:mx-0 mt-20">
           <div className="flex flex-col gap-2">
-            <p className=" opacity-65">BMW M4 F80</p>
-            <h1 className="text-7xl font-bold opac text-[#2a292f]">
-              Découvrez l&apos;univers des <br /> rassos
+            <p className=" opacity-65 lg:flex hidden">BMW M4 F80</p>
+            <h1 className="text-2xl lg:text-7xl font-bold opac text-[#2a292f]">
+              Découvrez l&apos;univers des <br className="hidden lg:block" /> rassos
             </h1>
 
-            <p className="w-[45ch] text-lg mt-4 text-justify text-[#2a292f]">
+            <p className="lg:w-[45ch] text-lg mt-4 text-justify text-[#2a292f]">
               Vous aimez les voitures, les bruits de voitures et les courses, et
               <span className="text-red-500"> RFT</span> aussi ! C&apos;est
               pourquoi nous visons à transmettre cette passion, en ayant des
@@ -89,7 +89,7 @@ export default function Home({ searchParams }: any) {
             </p>
             <Link href={"/Rassemblements"}>
               <Button
-                className="w-80 font-bold text-white"
+                className="max-w-80 font-bold text-white"
                 variant="destructive"
               >
                 Découvrez ce monde rapidement
@@ -101,12 +101,12 @@ export default function Home({ searchParams }: any) {
         <img
           src="/Images/bmwmw1.png"
           alt="evo2"
-          className="drop-shadow-xl absolute top-8 2xl:-top-24 right-10 animvoit1 w-[400px] 2xl:w-[600px]"
+          className="drop-shadow-xl lg:absolute top-8 2xl:-top-24 right-10 animvoit1 w-0 lg:w-[400px] 2xl:w-[600px]"
         />{" "}
         <img
           src="/Images/bmww.png"
           alt="evo2"
-          className="drop-shadow-xl absolute bottom-0 right-0 animvoit2 w-[400px] 2xl:w-[600px]"
+          className="drop-shadow-xl lg:absolute bottom-0 right-0 animvoit2 w-0 lg:w-[400px] 2xl:w-[600px]"
         />
       </div>
       
@@ -114,11 +114,11 @@ export default function Home({ searchParams }: any) {
         <Separator />
       </div>
 
-      <div className="grid grid-cols-2 w-[85%] mx-auto  bg-[#f4f4f7] mt-12 rounded-lg relative ">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:w-[85%] lg:mx-auto  bg-[#f4f4f7] mt-12 rounded-lg relative ">
 
-        <div className="h-full w-full flex items-center relative">
-          <div className="absolute w-8 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
-          <img src="/Images/mcevo22inv.png" className="h-72" alt="" />
+        <div className="h-full w-full flex items-center justify-center lg:justify-start relative">
+          <div className="absolute w-2 lg:w-8 rounded-lg left-0 top-0 h-full bg-[#C91313] "></div>
+          <img src="/Images/mcevo22inv.png" className="h-32 lg:h-72" alt="" />
         </div>
         <div className="p-8">
           <h2 className="text-2xl font-bold text-[#2a292f]">
@@ -126,7 +126,7 @@ export default function Home({ searchParams }: any) {
           </h2>
           <ListPage1 />
         </div>
-        <div className="blob absolute -top-20 -right-6 opacity-70 w-80 h-80 rotate-12"></div>
+        <div className="blob absolute -top-20 right-6 lg:-right-6 opacity-70 w-16 h-16 lg:w-80 lg:h-80 rotate-12"></div>
 
       </div>
 
@@ -148,7 +148,7 @@ export default function Home({ searchParams }: any) {
 
       <div className="flex justify-center mt-8">
         <Link href={"/Rassemblements"}>
-          <Button className="w-80 font-bold text-white" variant="destructive">
+          <Button className="max-w-80 font-bold text-white" variant="destructive">
             Créer mon Rasso
           </Button>
         </Link>
@@ -160,7 +160,7 @@ export default function Home({ searchParams }: any) {
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
           Découvrez... et vendez
         </h3>
-        <div className="blob3 absolute -top-40 -left-6 opacity-90 w-40 h-40 rotate-12"></div>
+        <div className="blob3 absolute -top-40 -left-6 opacity-90 w-20 h-20 lg:w-40 lg:h-40 rotate-12"></div>
 
       </div>
 
@@ -178,7 +178,7 @@ export default function Home({ searchParams }: any) {
         </h4>
       </div>
 
-      <div className="grid grid-cols-2 w-[80%] mx-auto mt-12">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:w-[80%] lg:mx-auto mt-12 gap-4 lg:gap-0">
         <div className="flex justify-center items-center">
           <div className="border border-red-500 rounded-full">
             <iframe
@@ -188,12 +188,12 @@ export default function Home({ searchParams }: any) {
               width={320}
               height={320}
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-full w-96 h-96 "
+              className="rounded-full w-40 h-40 lg:w-96 lg:h-96 "
             ></iframe>
           </div>
         </div>
-        <div className="relative">
-        <div className="blob3 absolute -top-40 -right-6 opacity-70 w-48 h-48 rotate-12"></div>
+        <div className="relative p-8 lg:p-0">
+        <div className="blob3 absolute -top-40 right-6 lg:-right-6 opacity-70 w-20 h-20 lg:w-48 lg:h-48 rotate-12"></div>
 
           <h4 className="text-lg font-bold text-[#2a292f]">
             Allumez vos clignotants et repérez les rassos les plus proches de
@@ -208,7 +208,7 @@ export default function Home({ searchParams }: any) {
           </p>
           <div>
             <Input
-              className="w-96 mt-4"
+              className="max-w-96 mt-4"
               placeholder="Entrez le nom de votre ville"
             ></Input>
             <p className="text-sm italic text-red-500 opacity-50">

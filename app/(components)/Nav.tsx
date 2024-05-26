@@ -85,7 +85,7 @@ const Nav = ({
 
 
   return (
-    <header className="w-full h-20 bg-[#f4f4f7]">
+    <header className="w-full h-20 bg-[#f4f4f7] hidden lg:block">
       <nav className="flex justify-between w-[70%] mx-auto h-full items-center">
         <div className="flex items-center relative">
           <Link href={"/"}>

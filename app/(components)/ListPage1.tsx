@@ -33,7 +33,7 @@ function ListPage1() {
           variants={listVariants}
         >
           <div className="flex justify-center items-center rounded-full bg-[#f4f4f7] p-2 border-2 border-red-500">
-            <img src={item.imgSrc} className="h-8 w-8" alt="" />
+            <img src={item.imgSrc} className="h-6 w-6 lg:h-8 lg:w-8" alt="" />
           </div>
           <p className="text-lg text-[#2a292f]">{item.text}</p>
         </motion.li>

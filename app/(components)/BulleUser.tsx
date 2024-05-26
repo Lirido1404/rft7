@@ -71,7 +71,7 @@ function BulleUser({ allUsers,twoCars }: any) {
   };
 
   return (
-    <div className="relative w-[85%] mx-auto bg-[#f4f4f7] rounded-lg mt-8  grid grid-cols-2">
+    <div className="relative  bg-[#f4f4f7] rounded-lg mt-8  flex flex-col lg:grid lg:grid-cols-2 lg:w-[85%] lg:mx-auto">
       <div className="p-8">
         <h2 className="text-lg font-bold text-[#2a292f]">
           Venez, discutez, mais aussi achetez et louez !
@@ -88,7 +88,7 @@ function BulleUser({ allUsers,twoCars }: any) {
           Vous pouvez même aller voir leur offre en cliquant sur{" "}
           <span className="font-bold">ces petites pastilles</span>
         </p>
-        <div className="flex items-center gap-2 mt-6">
+        <div className="flex flex-col lg:flex-row items-center gap-2 mt-6">
           <Link href={"/EspaceDeVente"}>
             <Button
               className="py-1 px-4 font-bold text-white"
@@ -108,7 +108,7 @@ function BulleUser({ allUsers,twoCars }: any) {
           </Link>
         </div>
         <p className="mt-4 text-[#2a292f]">Quelques annonces :</p>
-        <div className="flex items-center gap-8 mt-1 ">
+        <div className="flex flex-col lg:flex-row items-center gap-8 mt-1 ">
           
         {twoCars?.map((car: any, index: number) => (
             <motion.div
@@ -141,17 +141,18 @@ function BulleUser({ allUsers,twoCars }: any) {
           ))}
         </div>
       </div>
-      <div className="h-full w-full flex items-start justify-end relative">
-        <img src="/Images/audiiwet.png" className="h-96" alt="" />
+      <div className="h-full w-full lg:flex items-start lg:justify-end justify-center relative hidden">
+        <img src="/Images/audiiwet.png" className="h-40 lg:h-96" alt="" />
       </div>
-      <div className="absolute w-8 rounded-lg right-0 top-0 h-full bg-[#C91313] "></div>
+      <div className="absolute lg:w-8 w-0 rounded-lg right-0 top-0 h-full bg-[#C91313] "></div>
 
       {allUsers?.map((user: any, index: number) => {
         const finalX = getRandomDirection() * getRandomPosition(400); // Position d'arrivée aléatoire sur l'axe X
         const finalY = getRandomDirection() * getRandomPosition(100); // Position d'arrivée aléatoire sur l'axe Y
 
         return (
-          <Link key={index} href={`/MonCompte/Annonces/${user.userId}`} className=" ">
+          <div key={index} className="hidden lg:flex">
+          <Link  href={`/MonCompte/Annonces/${user.userId}`} className="">
             <motion.div
               
               className="flex text-center justify-center items-center h-12 w-12 xl:h-20 xl:w-20 rounded-full bg-[#f4f4f7] border-[#d4d4d4] border-2 relative "
@@ -182,6 +183,7 @@ function BulleUser({ allUsers,twoCars }: any) {
               />
             </motion.div>
           </Link>
+          </div>
         );
       })}
     </div>

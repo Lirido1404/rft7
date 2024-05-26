@@ -176,7 +176,7 @@ function BadgesMarques({ resRassoMarque }: any) {
         <h3 className="text-2xl font-bold text-[#2a292f] mt-12">
           Choisissez les rassos de vos marques préférées :
         </h3>
-        <div className="flex flex-wrap justify-around mt-8">
+        <div className="flex flex-wrap justify-around mt-8 gap-4 lg:gap-0">
           <button
             className={`shadow-lg border ${
               tag === "BMW" && "border-[#C91313] border-2 scale-110"
@@ -212,7 +212,7 @@ function BadgesMarques({ resRassoMarque }: any) {
       {tag !== "" && (
         <>
         <Separator className="w-[30%] mx-auto mt-4" />
-          <div className="mt-4 grid grid-cols-3 gap-6 w-[80%] mx-auto ">
+          <div className="mt-4 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:w-[80%] lg:mx-auto ">
             <AnimatePresence>
               {resRassoMarque.map((event: any, index: number) => (
                 <motion.div
